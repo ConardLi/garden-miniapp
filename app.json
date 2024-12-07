@@ -1,0 +1,71 @@
+{
+  "pages": [
+    "pages/home/index",
+    "pages/tool/blind-assistant/index",
+    "pages/tool/blind-assistant/environment/index",
+    "pages/tool/blind-assistant/navigation/index",
+    "pages/tool/blind-assistant/object/index",
+    "pages/tool/blind-assistant/text/index",
+    "pages/category/index",
+    "pages/profile/index",
+    "pages/tool/detail"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "AI工具集",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#999999",
+    "selectedColor": "#1296db",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/home/index",
+        "text": "首页",
+        "iconPath": "assets/images/home.png",
+        "selectedIconPath": "assets/images/home-active.png"
+      },
+      {
+        "pagePath": "pages/category/index",
+        "text": "分类",
+        "iconPath": "assets/images/category.png",
+        "selectedIconPath": "assets/images/category-active.png"
+      },
+      {
+        "pagePath": "pages/profile/index",
+        "text": "我的",
+        "iconPath": "assets/images/profile.png",
+        "selectedIconPath": "assets/images/profile-active.png"
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json",
+  "miniprogramRoot": "./",
+  "compileType": "miniprogram",
+  "libVersion": "3.0.0",
+  "requiredPrivateInfos": [
+    "getLocation"
+  ],
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示"
+    }
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "downloadFile": 10000
+  },
+  "requiredBackgroundModes": ["audio"],
+  "requiredDomains": [
+    "aip.baidubce.com",
+    "tsn.baidu.com",
+    "open.bigmodel.cn"
+  ],
+  "downloadDomains": [
+    "tsn.baidu.com"
+  ]
+}

@@ -1,0 +1,37 @@
+<view class="container">
+  <!-- 搜索框 -->
+  <view class="search-box">
+    <icon type="search" size="16" color="#999"></icon>
+    <input 
+      class="search-input" 
+      placeholder="搜索AI工具" 
+      value="{{searchValue}}"
+      bindinput="onSearchInput"
+    />
+    <icon 
+      wx:if="{{searchValue}}" 
+      type="clear" 
+      size="16" 
+      color="#999" 
+      bindtap="onSearchClear"
+    ></icon>
+  </view>
+
+  <!-- 工具列表 -->
+  <scroll-view 
+    class="tool-list" 
+    scroll-y 
+    enable-flex
+  >
+    <block wx:if="{{filteredToolList.length > 0}}">
+      <tool-card 
+        wx:for="{{filteredToolList}}" 
+        wx:key="id"
+        tool="{{item}}"
+      ></tool-card>
+    </block>
+    <view wx:else class="empty-state">
+      <text>没有找到相关工具</text>
+    </view>
+  </scroll-view>
+</view>

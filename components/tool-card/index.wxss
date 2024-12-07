@@ -1,0 +1,56 @@
+.tool-card {
+  background: #ffffff;
+  border-radius: 24rpx;
+  padding: 32rpx;
+  margin: 24rpx;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 4rpx 16rpx rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease;
+}
+
+.tool-card:active {
+  transform: scale(0.98);
+}
+
+.tool-icon {
+  width: 96rpx;
+  height: 96rpx;
+  margin-right: 24rpx;
+  flex-shrink: 0;
+}
+
+.tool-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.tool-name {
+  font-size: 32rpx;
+  font-weight: 500;
+  color: #333333;
+  margin-bottom: 8rpx;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.tool-desc {
+  font-size: 26rpx;
+  color: #666666;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+
+.tool-arrow {
+  margin-left: 24rpx;
+  flex-shrink: 0;
+}
+
+.arrow-icon {
+  width: 32rpx;
+  height: 32rpx;
+  opacity: 0.3;
+}

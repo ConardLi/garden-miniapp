@@ -1,0 +1,27 @@
+<view class="camera-container {{show ? 'show' : ''}}">
+  <camera 
+    class="camera" 
+    device-position="{{devicePosition}}"
+    flash="{{flash}}"
+    bindinitdone="onInitDone"
+    binderror="onError"
+  ></camera>
+
+  <!-- 控制按钮 -->
+  <view class="controls">
+    <view class="control-btn" bindtap="togglePosition">
+      <image class="btn-icon" src="/assets/images/switch-camera.png" />
+    </view>
+    <view class="capture-btn" bindtap="takePhoto">
+      <view class="capture-btn-inner"></view>
+    </view>
+    <view class="control-btn" bindtap="toggleFlash">
+      <image class="btn-icon" src="{{flash === 'on' ? '/assets/images/flash.png' : '/assets/images/flash-off.png'}}" />
+    </view>
+  </view>
+
+  <!-- 关闭按钮 -->
+  <view class="close-btn" bindtap="onClose">
+    <image class="btn-icon" src="/assets/images/close.png" />
+  </view>
+</view>

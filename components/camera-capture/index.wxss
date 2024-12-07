@@ -1,0 +1,92 @@
+.camera-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #000;
+  z-index: 1000;
+  display: none;
+}
+
+.camera-container.show {
+  display: block;
+}
+
+.camera {
+  width: 100%;
+  height: 100%;
+}
+
+.tip-text {
+  position: fixed;
+  top: 160rpx;
+  left: 0;
+  right: 0;
+  text-align: center;
+  color: #fff;
+  font-size: 32rpx;
+  padding: 20rpx;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1001;
+}
+
+.controls {
+  position: fixed;
+  bottom: 60rpx;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0 60rpx;
+  z-index: 1001;
+}
+
+.control-btn {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 40rpx;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.capture-btn {
+  width: 140rpx;
+  height: 140rpx;
+  border-radius: 70rpx;
+  background: rgba(255, 255, 255, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 40rpx;
+}
+
+.capture-btn-inner {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 60rpx;
+  background: #fff;
+}
+
+.close-btn {
+  position: fixed;
+  top: 60rpx;
+  right: 40rpx;
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 40rpx;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1001;
+}
+
+/* 图标样式 */
+.btn-icon {
+  width: 40rpx;
+  height: 40rpx;
+}

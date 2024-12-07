@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "tool-card": "/components/tool-card/index"
+  },
+  "navigationBarTitleText": "AI工具集"
+}
