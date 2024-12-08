@@ -1,5 +1,6 @@
 const { textToSpeech, stopCurrentAudio } = require('../../../../utils/tts');
 const { analyzeImage } = require('../../../../utils/vision');
+const { getPageShareConfig } = require('../../../../utils/share');
 
 const ENVIRONMENT_PROMPT = `背景：
 你是一个专为视障人士设计的AI助手，通过分析摄像头捕捉到的图像，提供详细的语音描述，帮助他们理解周围环境。
@@ -96,5 +97,13 @@ Page({
   onUnload() {
     // 页面卸载时停止播放
     stopCurrentAudio();
+  },
+
+  onShareAppMessage() {
+    return getPageShareConfig('/pages/tool/blind-assistant/environment/index')
+  },
+
+  onShareTimeline() {
+    return getPageShareConfig('/pages/tool/blind-assistant/environment/index')
   }
 });

@@ -1,6 +1,9 @@
 {
   "usingComponents": {
+    "iconfont": "/components/iconfont/index",
     "camera-capture": "/components/camera-capture/index"
   },
-  "navigationBarTitleText": "导航辅助"
+  "navigationBarTitleText": "导航辅助",
+  "enableShareAppMessage": true,
+  "enableShareTimeline": true
 }

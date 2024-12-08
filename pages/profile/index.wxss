@@ -1,1 +1,206 @@
 /* pages/profile/index.wxss */
+
+page {
+  background: #f6f6f6;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.container {
+  min-height: 100vh;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+/* 用户信息区域 */
+.user-info-section {
+  padding: 40rpx 24rpx;
+  background: linear-gradient(180deg, #4080ff 0%, #6c9dff 100%);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.user-basic-info {
+  display: flex;
+  align-items: center;
+  padding: 0 12rpx;
+}
+
+.user-basic-info:active {
+  opacity: 0.8;
+}
+
+.avatar {
+  width: 108rpx;
+  height: 108rpx;
+  border-radius: 54rpx;
+  margin-right: 24rpx;
+  background: #f0f0f0;
+  border: 4rpx solid rgba(255, 255, 255, 0.3);
+}
+
+.user-detail {
+  flex: 1;
+}
+
+.nickname {
+  font-size: 36rpx;
+  color: #ffffff;
+  margin-bottom: 8rpx;
+  font-weight: 500;
+}
+
+.user-id {
+  display: flex;
+  align-items: center;
+  font-size: 24rpx;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.copy-text {
+  color: #ff9052;
+  margin-left: 12rpx;
+}
+
+.login-tip {
+  font-size: 24rpx;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* VIP卡片 */
+.vip-card {
+  margin: -16rpx 12rpx 12rpx;
+  background: linear-gradient(90deg, #ffe29e 0%, #ffd064 100%);
+  border-radius: 12rpx;
+  padding: 20rpx;
+}
+
+.vip-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.vip-title {
+  display: flex;
+  flex-direction: column;
+}
+
+.cn-text {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333333;
+}
+
+.en-text {
+  font-size: 22rpx;
+  color: rgba(51, 51, 51, 0.6);
+  margin-top: 2rpx;
+}
+
+.vip-button {
+  background: #333333;
+  color: #ffffff;
+  padding: 8rpx 24rpx;
+  border-radius: 100rpx;
+  font-size: 24rpx;
+}
+
+/* 处理记录 */
+.process-section {
+  margin: 20rpx 24rpx;
+  background: #ffffff;
+  border-radius: 16rpx;
+  padding: 24rpx;
+  box-shadow: 0 4rpx 16rpx rgba(0, 0, 0, 0.08);
+}
+
+.section-title {
+  font-size: 28rpx;
+  font-weight: 500;
+  color: #333333;
+  margin-bottom: 24rpx;
+}
+
+.process-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12rpx;
+}
+
+.process-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 12rpx 0;
+}
+
+.process-icon {
+  width: 56rpx;
+  height: 56rpx;
+  margin-bottom: 12rpx;
+}
+
+.process-item text {
+  font-size: 22rpx;
+  color: #333333;
+  text-align: center;
+}
+
+/* 功能列表 */
+.function-list {
+  margin: 20rpx 24rpx;
+  background: #ffffff;
+  border-radius: 16rpx;
+  padding: 8rpx 0;
+  box-shadow: 0 4rpx 16rpx rgba(0, 0, 0, 0.08);
+}
+
+.function-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 32rpx 24rpx;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.function-item:last-child {
+  border-bottom: none;
+}
+
+.function-item:active {
+  background-color: rgba(0, 0, 0, 0.02);
+}
+
+.function-item-left {
+  display: flex;
+  align-items: center;
+}
+
+.function-icon {
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 16rpx;
+}
+
+.function-item-left text {
+  font-size: 28rpx;
+  color: #333333;
+}
+
+.arrow-icon {
+  width: 24rpx;
+  height: 24rpx;
+  opacity: 0.3;
+}
+
+/* 底部提示 */
+.bottom-tip {
+  text-align: center;
+  padding: 16rpx;
+  color: #999999;
+  font-size: 24rpx;
+}

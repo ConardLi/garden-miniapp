@@ -1,6 +1,9 @@
 {
   "usingComponents": {
+    "iconfont": "/components/iconfont/index",
     "camera-capture": "/components/camera-capture/index"
   },
-  "navigationBarTitleText": "物品识别"
+  "navigationBarTitleText": "物品识别",
+  "enableShareAppMessage": true,
+  "enableShareTimeline": true
 }

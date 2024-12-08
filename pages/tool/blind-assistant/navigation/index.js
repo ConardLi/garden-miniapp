@@ -1,5 +1,6 @@
 const { textToSpeech, stopCurrentAudio } = require('../../../../utils/tts');
 const { analyzeImage } = require('../../../../utils/vision');
+const { getPageShareConfig } = require('../../../../utils/share');
 
 const NAVIGATION_PROMPT = `背景：
 你是一个专为视障人士设计的AI导航助手，负责分析摄像头拍摄的图像并提供导航指引。
@@ -42,8 +43,6 @@ const NAVIGATION_PROMPT = `背景：
 
 示例：
 "前方5米处有盲道可循，地面平整。右前方2米处有下行台阶，请小心。建议沿盲道直行。"`;
-
-
 
 Page({
   data: {
@@ -119,5 +118,19 @@ Page({
   onUnload() {
     // 页面卸载时停止播放
     stopCurrentAudio();
+  },
+
+  onShareAppMessage() {
+    return {
+      ...getPageShareConfig('/pages/tool/blind-assistant/navigation/index'),
+      title: '导航辅助 - AI导航助手'
+    }
+  },
+
+  onShareTimeline() {
+    return {
+      ...getPageShareConfig('/pages/tool/blind-assistant/navigation/index'),
+      title: '导航辅助 - AI导航助手'
+    }
   }
 });

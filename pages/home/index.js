@@ -1,5 +1,6 @@
 // 首页逻辑
 import { tools } from '../../config/tools';
+import { getPageShareConfig } from '../../utils/share'
 
 Page({
   data: {
@@ -40,5 +41,13 @@ Page({
     this.setData({
       filteredToolList: filtered
     });
+  },
+
+  onShareAppMessage() {
+    return getPageShareConfig('/pages/home/index')
+  },
+
+  onShareTimeline() {
+    return getPageShareConfig('/pages/home/index')
   }
 });

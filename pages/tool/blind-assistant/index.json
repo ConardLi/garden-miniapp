@@ -2,5 +2,7 @@
   "navigationBarTitleText": "盲人助手",
   "usingComponents": {
     "iconfont": "/components/iconfont/index"
-  }
+  },
+  "enableShareAppMessage": true,
+  "enableShareTimeline": true
 }

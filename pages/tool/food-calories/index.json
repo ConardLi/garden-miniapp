@@ -1,7 +1,9 @@
 {
-  "navigationBarTitleText": "食物热量识别",
+  "navigationBarTitleText": "食物热量查询",
   "usingComponents": {
     "iconfont": "/components/iconfont/index",
     "camera-capture": "/components/camera-capture/index"
-  }
+  },
+  "enableShareAppMessage": true,
+  "enableShareTimeline": true
 }

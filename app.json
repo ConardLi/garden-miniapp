@@ -14,7 +14,7 @@
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "AI工具集",
+    "navigationBarTitleText": "AI工具箱",
     "navigationBarTextStyle": "black"
   },
   "tabBar": {
@@ -44,6 +44,17 @@
     ]
   },
   "style": "v2",
+  "componentFramework": "glass-easel",
+  "rendererOptions": {
+    "skyline": {
+      "defaultDisplayBlock": true,
+      "disableABTest": true,
+      "sdkVersionBegin": "3.0.0",
+      "sdkVersionEnd": "15.255.255"
+    }
+  },
+  "enableShareTimeline": true,
+  "lazyCodeLoading": "requiredComponents",
   "sitemapLocation": "sitemap.json",
   "miniprogramRoot": "./",
   "compileType": "miniprogram",
@@ -52,8 +63,7 @@
     "camera-capture": "/components/camera-capture/index"
   },
   "requiredPrivateInfos": [
-    "getLocation",
-    "chooseLocation"
+    "getLocation"
   ],
   "permission": {
     "scope.userLocation": {

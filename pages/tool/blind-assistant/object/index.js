@@ -1,5 +1,6 @@
 const { textToSpeech, stopCurrentAudio } = require('../../../../utils/tts');
 const { analyzeImage } = require('../../../../utils/vision');
+const { getPageShareConfig } = require('../../../../utils/share');
 
 const OBJECT_PROMPT = `背景：
 你是一个专为视障人士设计的物品识别助手，负责准确识别和描述拍摄物品的关键特征。
@@ -112,5 +113,19 @@ Page({
   onUnload() {
     // 页面卸载时停止播放
     stopCurrentAudio();
+  },
+
+  onShareAppMessage() {
+    return {
+      ...getPageShareConfig('/pages/tool/blind-assistant/object/index'),
+      title: '物品识别 - AI视觉助手'
+    }
+  },
+
+  onShareTimeline() {
+    return {
+      ...getPageShareConfig('/pages/tool/blind-assistant/object/index'),
+      title: '物品识别 - AI视觉助手'
+    }
   }
 });

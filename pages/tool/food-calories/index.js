@@ -1,6 +1,7 @@
 // 食物热量识别页面
 const app = getApp();
 const { analyzeImage } = require('../../../utils/vision');
+const { getPageShareConfig } = require('../../../utils/share');
 
 const FOOD_PROMPT = `背景：
 你是一个专业的食物识别助手，通过分析图片来识别食物并提供详细的营养信息。
@@ -231,5 +232,13 @@ Page({
   // 返回首页
   goBack() {
     wx.navigateBack();
+  },
+
+  onShareAppMessage() {
+    return getPageShareConfig('/pages/tool/food-calories/index')
+  },
+
+  onShareTimeline() {
+    return getPageShareConfig('/pages/tool/food-calories/index')
   }
 });

@@ -1,3 +1,5 @@
+const { getPageShareConfig } = require('../../../utils/share');
+
 Page({
   data: {
     // 页面数据
@@ -93,5 +95,13 @@ Page({
     const contacts = [...this.data.contacts];
     contacts.splice(index, 1);
     this.setData({ contacts });
+  },
+
+  onShareAppMessage() {
+    return getPageShareConfig('/pages/tool/blind-assistant/index')
+  },
+
+  onShareTimeline() {
+    return getPageShareConfig('/pages/tool/blind-assistant/index')
   }
 });

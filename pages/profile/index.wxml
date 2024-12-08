@@ -1,3 +1,74 @@
-<view class="container">
-  <text>个人中心开发中...</text>
+<view>
+  <!-- 用户信息区域 -->
+  <view class="user-info-section">
+    <view class="user-basic-info" bindtap="handleLogin">
+      <image class="avatar" src="{{profile.isLogin ? profile.avatar : '/assets/images/default_avatar.svg'}}" mode="aspectFill" />
+      <view class="user-detail">
+        <text class="nickname">{{profile.isLogin ? profile.nickname : '点击登录'}}</text>
+        <view class="user-id" wx:if="{{profile.isLogin}}" bindtap="copyUserId">
+          <text>ID: {{profile.userId}}</text>
+          <text class="copy-text">复制</text>
+        </view>
+        <text class="login-tip" wx:else>登录体验更多功能</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 最近使用 -->
+  <view class="process-section">
+    <text class="section-title">最近使用</text>
+    <view class="process-grid">
+      <view wx:for="{{recentTools}}" wx:key="name" class="process-item" bindtap="onToolTap" data-path="{{item.path}}">
+        <image class="process-icon" src="{{item.icon}}" mode="aspectFit" />
+        <text>{{item.name}}</text>
+      </view>
+      <view class="process-item" bindtap="onMoreTap">
+        <image class="process-icon" src="/assets/images/more.svg" mode="aspectFit" />
+        <text>更多</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 功能列表 -->
+  <view class="function-list">
+    <view class="function-item" bindtap="onFavoritesTap">
+      <view class="function-item-left">
+        <image class="function-icon" src="/assets/images/favorite.svg" mode="aspectFit" />
+        <text>我的收藏</text>
+      </view>
+      <image class="arrow-icon" src="/assets/images/arrow-right.png" mode="aspectFit" />
+    </view>
+    <view class="function-item" bindtap="onCustomerServiceTap">
+      <view class="function-item-left">
+        <image class="function-icon" src="/assets/images/service.svg" mode="aspectFit" />
+        <text>在线客服</text>
+      </view>
+      <image class="arrow-icon" src="/assets/images/arrow-right.png" mode="aspectFit" />
+    </view>
+    <view class="function-item" bindtap="onShareTap">
+      <view class="function-item-left">
+        <image class="function-icon" src="/assets/images/share.svg" mode="aspectFit" />
+        <text>分享好友</text>
+      </view>
+      <image class="arrow-icon" src="/assets/images/arrow-right.png" mode="aspectFit" />
+    </view>
+    <view class="function-item" bindtap="onRewardTap">
+      <view class="function-item-left">
+        <image class="function-icon" src="/assets/images/reward.svg" mode="aspectFit" />
+        <text>打赏作者</text>
+      </view>
+      <image class="arrow-icon" src="/assets/images/arrow-right.png" mode="aspectFit" />
+    </view>
+    <view class="function-item" bindtap="onClearCacheTap">
+      <view class="function-item-left">
+        <image class="function-icon" src="/assets/images/delete.png" mode="aspectFit" />
+        <text>清理缓存</text>
+      </view>
+      <image class="arrow-icon" src="/assets/images/arrow-right.png" mode="aspectFit" />
+    </view>
+  </view>
+
+  <view class="bottom-tip">
+    <text>Version 1.0.0</text>
+  </view>
 </view>

@@ -15,6 +15,13 @@ export const tools = [
     path: '/pages/tool/food-calories/index'
   },
   {
+    id: 'code-assistant',
+    name: '代码助手',
+    description: '帮助编写和优化代码',
+    icon: 'code',
+    path: '/pages/tool/code-assistant/index'
+  },
+  {
     id: 'chat-assistant',
     name: '公众号助手',
     description: '回答关于code秘密花园的各种问题',
@@ -27,12 +34,5 @@ export const tools = [
     description: '通过文字描述生成图片',
     icon: 'image-gen',
     path: '/pages/tool/image-generator/index'
-  },
-  {
-    id: 'code-assistant',
-    name: '代码助手',
-    description: '帮助编写和优化代码',
-    icon: 'code',
-    path: '/pages/tool/code-assistant/index'
   }
 ];
