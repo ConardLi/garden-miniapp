@@ -1,5 +1,7 @@
 {
-  "usingComponents": {},
+  "usingComponents": {
+    "tool-card": "/components/tool-card/index"
+  },
   "navigationBarTitleText": "分类",
   "enableShareAppMessage": true,
   "enableShareTimeline": true

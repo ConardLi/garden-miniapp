@@ -1,3 +1,41 @@
 <view class="container">
-  <text>分类页面开发中...</text>
+  <!-- 搜索栏 -->
+  <view class="search-bar">
+    <image class="search-icon" src="/assets/icons/search.png" mode="aspectFit" />
+    <input class="search-input" type="text" placeholder="搜索工具" bindinput="onSearchInput" />
+  </view>
+
+  <!-- 内容区域 -->
+  <view class="content">
+    <!-- 左侧分类列表 -->
+    <view class="category-list">
+      <view 
+        wx:for="{{categories}}" 
+        wx:key="id"
+        class="category-item {{currentCategory === item.id ? 'active' : ''}}"
+        bindtap="onCategoryTap"
+        data-id="{{item.id}}"
+      >
+        <image class="category-icon" src="{{item.icon}}" mode="aspectFit" />
+        <text>{{item.name}}</text>
+      </view>
+    </view>
+
+    <!-- 右侧工具列表 -->
+    <scroll-view class="tool-list" scroll-y>
+      <block wx:if="{{filteredTools.length > 0}}">
+        <tool-card 
+          wx:for="{{filteredTools}}" 
+          wx:key="id"
+          tool="{{item}}"
+          bindtap="onToolTap"
+          data-path="{{item.path}}"
+        />
+      </block>
+      <view wx:else class="empty-tip">
+        <image src="/assets/icons/empty.png" mode="aspectFit" />
+        <text>暂无相关工具</text>
+      </view>
+    </scroll-view>
+  </view>
 </view>
