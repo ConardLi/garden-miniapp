@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "食物热量识别",
+  "usingComponents": {
+    "iconfont": "/components/iconfont/index",
+    "camera-capture": "/components/camera-capture/index"
+  }
+}

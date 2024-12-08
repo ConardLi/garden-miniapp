@@ -6,6 +6,7 @@
     "pages/tool/blind-assistant/navigation/index",
     "pages/tool/blind-assistant/object/index",
     "pages/tool/blind-assistant/text/index",
+    "pages/tool/food-calories/index",
     "pages/category/index",
     "pages/profile/index",
     "pages/tool/detail"
@@ -47,8 +48,12 @@
   "miniprogramRoot": "./",
   "compileType": "miniprogram",
   "libVersion": "3.0.0",
+  "usingComponents": {
+    "camera-capture": "/components/camera-capture/index"
+  },
   "requiredPrivateInfos": [
-    "getLocation"
+    "getLocation",
+    "chooseLocation"
   ],
   "permission": {
     "scope.userLocation": {

@@ -1,0 +1,113 @@
+<view class="container">
+  <!-- 主功能区域 -->
+  <view class="main-section {{showSettings ? 'hide' : ''}}">
+    <view class="grid">
+      <!-- 环境描述 -->
+      <view class="grid-item" bindtap="onStartEnvironment">
+        <view class="icon-wrapper environment">
+          <image class="grid-icon" src="/assets/images/environment.png" mode="aspectFit" />
+        </view>
+        <text class="grid-text">环境描述</text>
+      </view>
+      
+      <!-- 导航辅助 -->
+      <view class="grid-item" bindtap="onStartNavigation">
+        <view class="icon-wrapper navigation">
+          <image class="grid-icon" src="/assets/images/navigation.png" mode="aspectFit" />
+        </view>
+        <text class="grid-text">导航辅助</text>
+      </view>
+      
+      <!-- 物品识别 -->
+      <view class="grid-item" bindtap="onStartObjectDetection">
+        <view class="icon-wrapper object">
+          <image class="grid-icon" src="/assets/images/object.png" mode="aspectFit" />
+        </view>
+        <text class="grid-text">物品识别</text>
+      </view>
+      
+      <!-- 文字识别 -->
+      <view class="grid-item" bindtap="onStartTextRecognition">
+        <view class="icon-wrapper text">
+          <image class="grid-icon" src="/assets/images/text.png" mode="aspectFit" />
+        </view>
+        <text class="grid-text">文字识别</text>
+      </view>
+    </view>
+
+    <!-- 设置按钮 -->
+    <view class="settings-btn" bindtap="toggleSettings">
+      <image class="settings-icon" src="/assets/images/settings.png" mode="aspectFit" />
+      <text>设置</text>
+    </view>
+  </view>
+
+  <!-- 设置界面 -->
+  <view class="settings-section {{!showSettings ? 'hide' : ''}}">
+    <view class="settings-header">
+      <view class="back-btn" bindtap="toggleSettings">
+        <image class="back-icon" src="/assets/images/back.png" mode="aspectFit" />
+        <text>返回</text>
+      </view>
+      <text class="settings-title">设置</text>
+    </view>
+
+    <scroll-view class="settings-content" scroll-y>
+      <!-- 语音设置 -->
+      <view class="settings-group">
+        <view class="settings-group-title">
+          <text>语音设置</text>
+        </view>
+        <view class="settings-item">
+          <view class="item-label">
+            <text class="label-text">语音速度</text>
+            <text class="label-desc">调整语音播报的速度</text>
+          </view>
+          <slider class="custom-slider" value="{{voiceSpeed}}" min="0.5" max="2" step="0.1" block-size="20" bindchange="onVoiceSpeedChange" show-value/>
+        </view>
+        <view class="settings-item">
+          <view class="item-label">
+            <text class="label-text">语音音量</text>
+            <text class="label-desc">调整语音播报的音量大小</text>
+          </view>
+          <slider class="custom-slider" value="{{voiceVolume}}" min="0" max="100" step="1" block-size="20" bindchange="onVoiceVolumeChange" show-value/>
+        </view>
+      </view>
+
+      <!-- 敏感度设置 -->
+      <view class="settings-group">
+        <view class="settings-group-title">
+          <text>敏感度设置</text>
+        </view>
+        <view class="settings-item">
+          <view class="item-label">
+            <text class="label-text">障碍物提示敏感度</text>
+            <text class="label-desc">调整障碍物检测的灵敏度</text>
+          </view>
+          <slider class="custom-slider" value="{{sensitivity}}" min="1" max="10" step="1" block-size="20" bindchange="onSensitivityChange" show-value/>
+        </view>
+      </view>
+
+      <!-- 紧急联系人 -->
+      <view class="settings-group">
+        <view class="settings-group-title">
+          <text>紧急联系人</text>
+        </view>
+        <view class="contact-list">
+          <view wx:for="{{contacts}}" wx:key="index" class="contact-item">
+            <view class="contact-info">
+              <text class="contact-name">{{item.name}}</text>
+              <text class="contact-phone">{{item.phone}}</text>
+            </view>
+            <view class="delete-btn" data-index="{{index}}" bindtap="deleteContact">
+              <image class="delete-icon" src="/assets/images/delete.png" mode="aspectFit" />
+            </view>
+          </view>
+        </view>
+        <button class="add-contact-btn" bindtap="addContact">
+          <text>添加联系人</text>
+        </button>
+      </view>
+    </scroll-view>
+  </view>
+</view>

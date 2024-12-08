@@ -1,0 +1,390 @@
+/* 容器 */
+.container {
+  min-height: 100vh;
+  background: #f8f9fa;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* 头部区域 */
+.header {
+  position: relative;
+  height: 360rpx;
+  width: 100%;
+  overflow: hidden;
+  border-bottom-left-radius: 40rpx;
+  border-bottom-right-radius: 40rpx;
+}
+
+.header-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.header-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.6));
+  z-index: 2;
+}
+
+.header-content {
+  position: absolute;
+  bottom: 40rpx;
+  left: 40rpx;
+  right: 40rpx;
+  z-index: 3;
+}
+
+.header-title {
+  font-size: 48rpx;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 16rpx;
+  display: block;
+  text-shadow: 0 2rpx 4rpx rgba(0,0,0,0.2);
+}
+
+.header-desc {
+  font-size: 28rpx;
+  color: rgba(255,255,255,0.9);
+  display: block;
+}
+
+/* 功能特性区域 */
+.features {
+  display: flex;
+  justify-content: space-between;
+  padding: 40rpx;
+  margin-top: -40rpx;
+  position: relative;
+  z-index: 4;
+}
+
+.feature-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #ffffff;
+  padding: 32rpx 20rpx;
+  margin: 0 12rpx;
+  border-radius: 24rpx;
+  box-shadow: 0 4rpx 16rpx rgba(0,0,0,0.06);
+}
+
+.feature-icon-wrap {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 20rpx;
+  background: rgba(7,193,96,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16rpx;
+}
+
+.feature-icon {
+  width: 48rpx;
+  height: 48rpx;
+}
+
+.feature-title {
+  font-size: 28rpx;
+  font-weight: 500;
+  color: #333333;
+  margin-bottom: 8rpx;
+}
+
+.feature-desc {
+  font-size: 24rpx;
+  color: #666666;
+  text-align: center;
+}
+
+/* 操作区域 */
+.action-area {
+  padding: 40rpx;
+}
+
+.capture-btn {
+  width: 100%;
+  height: 96rpx;
+  background: #07c160;
+  border-radius: 48rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 40rpx;
+  box-shadow: 0 8rpx 24rpx rgba(7,193,96,0.3);
+}
+
+.camera-icon {
+  width: 48rpx;
+  height: 48rpx;
+  margin-right: 16rpx;
+}
+
+.capture-btn text {
+  font-size: 32rpx;
+  font-weight: 500;
+  color: #ffffff;
+}
+
+/* 使用提示卡片 */
+.tips-card {
+  background: #ffffff;
+  border-radius: 24rpx;
+  padding: 32rpx;
+  box-shadow: 0 4rpx 16rpx rgba(0,0,0,0.06);
+}
+
+.tips-title {
+  font-size: 32rpx;
+  font-weight: 500;
+  color: #333333;
+  margin-bottom: 24rpx;
+  display: block;
+}
+
+.tips-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16rpx;
+}
+
+.tip-item {
+  display: flex;
+  align-items: flex-start;
+}
+
+.tip-dot {
+  color: #07c160;
+  margin-right: 12rpx;
+  font-weight: bold;
+}
+
+.tip-text {
+  font-size: 28rpx;
+  color: #666666;
+  flex: 1;
+  line-height: 1.5;
+}
+
+/* 加载中 */
+.loading-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.loading-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.loading-icon {
+  width: 80rpx;
+  height: 80rpx;
+  margin-bottom: 16rpx;
+  animation: rotate 1s linear infinite;
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.loading-box text {
+  font-size: 28rpx;
+  color: #666;
+}
+
+/* 识别结果 */
+.result-container {
+  padding-bottom: 32rpx;
+}
+
+/* 未识别到食物 */
+.no-food {
+  background: #fff;
+  border-radius: 24rpx;
+  padding: 64rpx 32rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 4rpx 16rpx rgba(0, 0, 0, 0.08);
+  margin-bottom: 32rpx;
+}
+
+.no-food-icon {
+  width: 160rpx;
+  height: 160rpx;
+  margin-bottom: 32rpx;
+}
+
+.no-food-text {
+  font-size: 32rpx;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 8rpx;
+}
+
+.no-food-tips {
+  font-size: 28rpx;
+  color: #999;
+}
+
+/* 食物列表 */
+.food-list {
+  margin-bottom: 32rpx;
+}
+
+.result-card {
+  background: #fff;
+  border-radius: 24rpx;
+  padding: 32rpx;
+  margin-bottom: 24rpx;
+  box-shadow: 0 4rpx 16rpx rgba(0, 0, 0, 0.08);
+}
+
+.result-card:last-child {
+  margin-bottom: 0;
+}
+
+.food-name {
+  font-size: 36rpx;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 24rpx;
+}
+
+.calories {
+  margin-bottom: 32rpx;
+}
+
+.calories-num {
+  font-size: 48rpx;
+  font-weight: 600;
+  color: #07c160;
+}
+
+.calories-unit {
+  font-size: 24rpx;
+  color: #07c160;
+  margin-left: 8rpx;
+}
+
+.nutrition-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16rpx;
+  margin-bottom: 32rpx;
+  background: #f8f8f8;
+  border-radius: 16rpx;
+  padding: 24rpx;
+}
+
+.nutrition-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.nutrition-value {
+  font-size: 32rpx;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 4rpx;
+}
+
+.nutrition-label {
+  font-size: 24rpx;
+  color: #666;
+}
+
+.tips-card {
+  background: #f8f8f8;
+  border-radius: 16rpx;
+  padding: 24rpx;
+}
+
+.tips-title {
+  font-size: 28rpx;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 8rpx;
+  display: block;
+}
+
+.tips-content {
+  font-size: 26rpx;
+  color: #666;
+  line-height: 1.6;
+}
+
+/* 总卡路里 */
+.total-calories {
+  background: #07c160;
+  border-radius: 24rpx;
+  padding: 32rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32rpx;
+  box-shadow: 0 4rpx 16rpx rgba(7, 193, 96, 0.3);
+}
+
+.total-calories-label {
+  font-size: 32rpx;
+  color: #fff;
+}
+
+.total-calories-value {
+  font-size: 40rpx;
+  font-weight: 600;
+  color: #fff;
+}
+
+/* 操作按钮 */
+.action-buttons {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24rpx;
+}
+
+.action-btn {
+  height: 88rpx;
+  border-radius: 44rpx;
+  font-size: 32rpx;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.retake {
+  background: #07c160;
+  color: #fff;
+}
+
+.back {
+  background: #f5f5f5;
+  color: #666;
+  border: 2rpx solid #ddd;
+}

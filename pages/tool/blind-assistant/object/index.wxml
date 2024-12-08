@@ -1,0 +1,11 @@
+<view class="container">
+  <!-- 相机组件 -->
+  <camera-capture 
+    show="{{showCamera}}" 
+    bind:close="closeCamera"
+    bind:capture="handleCapture"
+  />
+  <view class="text-display" wx:if="{{displayText}}">
+    <text id="speakText" aria-live="{{isIOS ? 'assertive' : 'off'}}">{{displayText}}</text>
+  </view>
+</view>

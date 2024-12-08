@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "camera-capture": "/components/camera-capture/index"
+  },
+  "navigationBarTitleText": "文字识别"
+}

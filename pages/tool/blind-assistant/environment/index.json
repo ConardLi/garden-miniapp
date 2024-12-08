@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "环境描述",
+  "usingComponents": {
+    "camera-capture": "/components/camera-capture/index",
+    "iconfont": "/components/iconfont/index"
+  }
+}

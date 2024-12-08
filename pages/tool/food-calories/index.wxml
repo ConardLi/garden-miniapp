@@ -1,0 +1,130 @@
+<view class="container">
+  <!-- 主界面 -->
+  <block wx:if="{{!showResult}}">
+    <view class="header">
+      <image class="header-bg" src="/assets/images/food-header.png" mode="aspectFill" />
+      <view class="header-overlay"></view>
+      <view class="header-content">
+        <text class="header-title">食物热量识别</text>
+        <text class="header-desc">拍照即可获取食物的热量和营养信息</text>
+      </view>
+    </view>
+
+    <view class="features">
+      <view class="feature-item">
+        <view class="feature-icon-wrap">
+          <image class="feature-icon" src="/assets/images/accuracy.svg" mode="aspectFit" />
+        </view>
+        <text class="feature-title">智能识别</text>
+        <text class="feature-desc">准确分析食物种类</text>
+      </view>
+      <view class="feature-item">
+        <view class="feature-icon-wrap">
+          <image class="feature-icon" src="/assets/images/nutrition.svg" mode="aspectFit" />
+        </view>
+        <text class="feature-title">营养分析</text>
+        <text class="feature-desc">详细营养成分数据</text>
+      </view>
+      <view class="feature-item">
+        <view class="feature-icon-wrap">
+          <image class="feature-icon" src="/assets/images/multi.svg" mode="aspectFit" />
+        </view>
+        <text class="feature-title">多物识别</text>
+        <text class="feature-desc">支持多个食物同时识别</text>
+      </view>
+    </view>
+
+    <view class="action-area">
+      <button class="capture-btn" bindtap="startCapture">
+        <image class="camera-icon" src="/assets/images/camera.svg" mode="aspectFit" />
+        <text>开始识别</text>
+      </button>
+
+      <view class="tips-card">
+        <text class="tips-title">使用小贴士</text>
+        <view class="tips-list">
+          <view class="tip-item">
+            <text class="tip-dot">•</text>
+            <text class="tip-text">将食物放在画面中央以获得最佳效果</text>
+          </view>
+          <view class="tip-item">
+            <text class="tip-dot">•</text>
+            <text class="tip-text">保持光线充足，避免阴影干扰</text>
+          </view>
+          <view class="tip-item">
+            <text class="tip-dot">•</text>
+            <text class="tip-text">可同时拍摄多个食物，智能分析</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </block>
+
+  <!-- 加载中 -->
+  <view class="loading-container" wx:if="{{loading}}">
+    <view class="loading-box">
+      <image class="loading-icon" src="/assets/images/loading.svg" mode="aspectFit" />
+      <text>正在识别中...</text>
+    </view>
+  </view>
+
+  <!-- 识别结果 -->
+  <block wx:if="{{showResult}}">
+    <view class="result-container">
+      <!-- 未识别到食物 -->
+      <view class="no-food" wx:if="{{noFood}}">
+        <image class="no-food-icon" src="/assets/images/no-result.png" mode="aspectFit" />
+        <text class="no-food-text">未能识别到食物</text>
+        <text class="no-food-tips">请确保图片中有清晰的食物</text>
+      </view>
+
+      <!-- 食物列表 -->
+      <block wx:else>
+        <view class="food-list">
+          <view class="result-card" wx:for="{{results}}" wx:key="name">
+            <view class="food-name">{{item.name}}</view>
+            <view class="calories">
+              <text class="calories-num">{{item.calories}}</text>
+              <text class="calories-unit">kcal</text>
+            </view>
+            
+            <view class="nutrition-grid">
+              <view class="nutrition-item">
+                <text class="nutrition-value">{{item.nutrition.protein}}g</text>
+                <text class="nutrition-label">蛋白质</text>
+              </view>
+              <view class="nutrition-item">
+                <text class="nutrition-value">{{item.nutrition.fat}}g</text>
+                <text class="nutrition-label">脂肪</text>
+              </view>
+              <view class="nutrition-item">
+                <text class="nutrition-value">{{item.nutrition.carbs}}g</text>
+                <text class="nutrition-label">碳水</text>
+              </view>
+              <view class="nutrition-item">
+                <text class="nutrition-value">{{item.nutrition.fiber}}g</text>
+                <text class="nutrition-label">膳食纤维</text>
+              </view>
+            </view>
+
+            <view class="tips-card">
+              <text class="tips-title">饮食建议</text>
+              <text class="tips-content">{{item.tips}}</text>
+            </view>
+          </view>
+        </view>
+
+        <!-- 总卡路里 -->
+        <view class="total-calories" wx:if="{{results.length > 1}}">
+          <text class="total-calories-label">总热量</text>
+          <text class="total-calories-value">{{totalCalories}} kcal</text>
+        </view>
+      </block>
+
+      <view class="action-buttons">
+        <button class="action-btn retake" bindtap="retake">重新拍照</button>
+        <button class="action-btn back" bindtap="goBack">返回首页</button>
+      </view>
+    </view>
+  </block>
+</view>

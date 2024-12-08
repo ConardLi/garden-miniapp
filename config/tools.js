@@ -8,6 +8,13 @@ export const tools = [
     path: '/pages/tool/blind-assistant/index'
   },
   {
+    id: 'food-calories',
+    name: '食物热量',
+    description: '拍照识别食物热量和营养成分',
+    icon: 'food',
+    path: '/pages/tool/food-calories/index'
+  },
+  {
     id: 'chat-assistant',
     name: '公众号助手',
     description: '回答关于code秘密花园的各种问题',
