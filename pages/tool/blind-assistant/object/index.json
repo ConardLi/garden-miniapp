@@ -1,6 +1,5 @@
 {
   "usingComponents": {
-    "iconfont": "/components/iconfont/index",
     "camera-capture": "/components/camera-capture/index"
   },
   "navigationBarTitleText": "物品识别",

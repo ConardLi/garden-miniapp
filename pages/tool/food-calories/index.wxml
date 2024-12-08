@@ -2,7 +2,7 @@
   <!-- 主界面 -->
   <block wx:if="{{!showResult}}">
     <view class="header">
-      <image class="header-bg" src="/assets/images/food-header.png" mode="aspectFill" />
+      <image class="header-bg" src="https://garden-1257917459.cos.ap-beijing.myqcloud.com/miniapp/food-header.png" mode="aspectFill" />
       <view class="header-overlay"></view>
       <view class="header-content">
         <text class="header-title">食物热量识别</text>
