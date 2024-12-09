@@ -60,14 +60,14 @@ Page({
   // 处理拍照结果
   async handleCapture(e) {
     console.log('收到拍照事件:', e.detail);
-    
+
     try {
       // 停止当前播放的音频
       stopCurrentAudio();
-      
+
       const { base64, tempPath } = e.detail;
       console.log('图片临时路径:', tempPath);
-      
+
       this.setData({
         imageBase64: base64,
         imagePath: tempPath,
@@ -79,7 +79,7 @@ Page({
       // 调用图像识别，传入物品识别特定的 prompt
       const description = await analyzeImage(base64, OBJECT_PROMPT);
       console.log('智谱AI返回结果:', description);
-      
+
       this.setData({
         displayText: description,
         analyzing: false
@@ -88,14 +88,21 @@ Page({
       // 播放识别结果
       console.log('开始播放语音...');
       await textToSpeech(description);
-      
+
     } catch (error) {
+      const app = getApp();
+
       console.error('处理图片失败:', error);
+
       this.setData({
         displayText: '抱歉，物品识别失败，请重试',
         analyzing: false
       });
-      
+
+      app.log.error('Object recognition failed:', {
+        error: error
+      });
+
       // 播放错误提示
       await textToSpeech('抱歉，物品识别失败，请重试');
     }
