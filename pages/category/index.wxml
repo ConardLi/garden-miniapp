@@ -1,7 +1,7 @@
 <view class="container">
   <!-- 搜索栏 -->
   <view class="search-bar">
-    <image class="search-icon" src="/assets/icons/search.png" mode="aspectFit" />
+    <icon type="search" size="18" color="#999"></icon>
     <input class="search-input" type="text" placeholder="搜索工具" bindinput="onSearchInput" />
   </view>
 
@@ -16,7 +16,7 @@
         bindtap="onCategoryTap"
         data-id="{{item.id}}"
       >
-        <image class="category-icon" src="{{item.icon}}" mode="aspectFit" />
+        <!-- <image class="category-icon" src="{{item.icon}}" mode="aspectFit" /> -->
         <text>{{item.name}}</text>
       </view>
     </view>

@@ -20,10 +20,18 @@ export const categories = [
 // 工具列表
 export const tools = [
   {
+    id: 'image-recognition',
+    name: '图像识别',
+    description: '智能识别图片中的物品（通用识别）',
+    icon: 'icon-recognition.svg',
+    path: '/pages/tool/image-recognition/index',
+    category: 'vision'
+  },
+  {
     id: 'blind-assistant',
     name: '盲人助手',
     description: '为视障人士提供视觉辅助',
-    icon: 'eye',
+    icon: 'eye.png',
     path: '/pages/tool/blind-assistant/index',
     category: 'vision'
   },
@@ -31,7 +39,7 @@ export const tools = [
     id: 'food-calories',
     name: '食物热量',
     description: '识别食物热量和营养成分',
-    icon: 'food',
+    icon: 'food.png',
     path: '/pages/tool/food-calories/index',
     category: 'life'
   },
@@ -39,7 +47,7 @@ export const tools = [
     id: 'image-generator',
     name: 'AI绘画',
     description: '根据文字描述生成图片',
-    icon: 'image',
+    icon: 'image.png',
     path: '/pages/tool/image-generator/index',
     category: 'creation'
   }

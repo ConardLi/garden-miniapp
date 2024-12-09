@@ -9,7 +9,8 @@
     "pages/tool/food-calories/index",
     "pages/category/index",
     "pages/profile/index",
-    "pages/tool/detail"
+    "pages/tool/detail",
+    "pages/tool/image-recognition/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

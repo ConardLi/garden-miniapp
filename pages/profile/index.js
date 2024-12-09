@@ -24,7 +24,7 @@ Page({
     // 获取前三个工具
     console.log('工具列表:', tools)
     const recentTools = tools.slice(0, 3).map(tool => ({
-      icon: `/assets/images/${tool.icon}.png`,
+      icon: `/assets/images/${tool.icon}`,
       name: tool.name,
       path: tool.path
     }))

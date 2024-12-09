@@ -19,11 +19,18 @@ export const getPageShareConfig = (pagePath, pageData = {}) => {
     '/pages/tool/blind-assistant/environment/index': {
       title: '环境描述 - AI场景识别',
       path: '/pages/tool/blind-assistant/environment/index'
+    },
+    '/pages/tool/image-recognition/index': {
+      title: '智能物体识别 - AI图像识别',
+      path: '/pages/tool/image-recognition/index'
     }
   }
-  
+
+  // 获取页面特定配置或使用默认配置
+  const pageConfig = pagePath ? configs[pagePath] : null
   return {
     ...defaultShareConfig,
-    ...(configs[pagePath] || {})
+    ...(pageConfig || {}),
+    ...pageData
   }
 }

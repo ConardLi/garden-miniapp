@@ -1,0 +1,112 @@
+<view class="container">
+  <!-- 主界面 -->
+  <block wx:if="{{!showResult}}">
+    <view class="header">
+      <image class="header-bg" src="https://garden-1257917459.cos.ap-beijing.myqcloud.com/miniapp/screenshot-20241209-230523.png" mode="aspectFill" />
+      <view class="header-overlay"></view>
+      <view class="header-content">
+        <text class="header-title">图像识别</text>
+        <text class="header-desc">拍照即可识别物品，提供详细信息</text>
+      </view>
+    </view>
+
+    <view class="features">
+      <view class="feature-item">
+        <view class="feature-icon-wrap">
+          <image class="feature-icon" src="/assets/images/accuracy.svg" mode="aspectFit" />
+        </view>
+        <text class="feature-title">智能识别</text>
+        <text class="feature-desc">准确分析物品种类</text>
+      </view>
+      <view class="feature-item">
+        <view class="feature-icon-wrap">
+          <image class="feature-icon" src="/assets/images/favorite.svg" mode="aspectFit" />
+        </view>
+        <text class="feature-title">特征分析</text>
+        <text class="feature-desc">提供相关标签信息</text>
+      </view>
+      <view class="feature-item">
+        <view class="feature-icon-wrap">
+          <image class="feature-icon" src="/assets/images/multi.svg" mode="aspectFit" />
+        </view>
+        <text class="feature-title">多物识别</text>
+        <text class="feature-desc">支持多物品同时识别</text>
+      </view>
+    </view>
+
+    <view class="action-area">
+      <button class="capture-btn" bindtap="startCapture">
+        <image class="camera-icon" src="/assets/images/camera.svg" mode="aspectFit" />
+        <text>开始识别</text>
+      </button>
+
+      <view class="tips-card">
+        <text class="tips-title">使用小贴士</text>
+        <view class="tips-list">
+          <view class="tip-item">
+            <text class="tip-dot">•</text>
+            <text class="tip-text">将物品放在画面中央以获得最佳效果</text>
+          </view>
+          <view class="tip-item">
+            <text class="tip-dot">•</text>
+            <text class="tip-text">保持光线充足，避免阴影干扰</text>
+          </view>
+          <view class="tip-item">
+            <text class="tip-dot">•</text>
+            <text class="tip-text">可同时拍摄多个物品，智能分析</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </block>
+
+  <!-- 加载中 -->
+  <view class="loading-container" wx:if="{{loading}}">
+    <view class="loading-box">
+      <image class="loading-icon" src="/assets/images/loading.svg" mode="aspectFit" />
+      <text>正在识别中...</text>
+    </view>
+  </view>
+
+  <!-- 识别结果 -->
+  <block wx:if="{{showResult}}">
+    <view class="result-container">
+      <!-- 图片预览 -->
+      <view class="preview-image">
+        <image src="{{imagePath}}" mode="aspectFit" />
+      </view>
+
+      <!-- 未识别到物品 -->
+      <view class="no-object" wx:if="{{noObject}}">
+        <image class="no-object-icon" src="/assets/images/no-result.png" mode="aspectFit" />
+        <text class="no-object-text">未能识别到物品</text>
+        <text class="no-object-tips">请确保图片中有清晰的物品</text>
+      </view>
+
+      <!-- 物品列表 -->
+      <block wx:else>
+        <view class="object-list">
+          <view class="result-card" wx:for="{{results}}" wx:key="name">
+            <view class="object-header">
+              <text class="object-name">{{item.name}}</text>
+              <text class="object-score">{{item.score}}</text>
+            </view>
+            
+            <view class="object-tags" wx:if="{{item.tags}}">
+              <text class="tag">{{item.tags}}</text>
+            </view>
+
+            <view class="object-desc">
+              <text class="desc-content">{{item.description}}</text>
+            </view>
+          </view>
+        </view>
+      </block>
+
+      <view class="action-buttons">
+        <button class="action-btn retake" bindtap="retake">重新拍照</button>
+        <button class="action-btn back" bindtap="goBack">返回首页</button>
+      </view>
+    </view>
+  </block>
+</view>
