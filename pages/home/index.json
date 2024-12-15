@@ -2,5 +2,7 @@
   "usingComponents": {
     "tool-card": "/components/tool-card/index"
   },
-  "navigationBarTitleText": "AI工具箱"
+  "navigationBarTitleText": "AI工具箱",
+  "navigationBarBackgroundColor": "#0e77b0",
+  "navigationBarTextStyle": "white"
 }

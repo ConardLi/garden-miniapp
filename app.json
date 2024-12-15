@@ -56,9 +56,7 @@
   },
   "lazyCodeLoading": "requiredComponents",
   "sitemapLocation": "sitemap.json",
-  "miniprogramRoot": "./",
-  "compileType": "miniprogram",
-  "libVersion": "3.0.0",
+  "libVersion": "3.2.0",
   "usingComponents": {
     "camera-capture": "/components/camera-capture/index"
   },
@@ -74,13 +72,5 @@
     "request": 10000,
     "downloadFile": 10000
   },
-  "requiredBackgroundModes": ["audio"],
-  "requiredDomains": [
-    "aip.baidubce.com",
-    "tsn.baidu.com",
-    "open.bigmodel.cn"
-  ],
-  "downloadDomains": [
-    "tsn.baidu.com"
-  ]
+  "requiredBackgroundModes": ["audio"]
 }

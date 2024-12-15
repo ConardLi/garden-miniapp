@@ -17,7 +17,7 @@ page {
 /* 用户信息区域 */
 .user-info-section {
   padding: 40rpx 24rpx;
-  background: linear-gradient(180deg, #4080ff 0%, #6c9dff 100%);
+  background: linear-gradient(180deg, #0e77b0 0%, #fff 220rpx);
   width: 100%;
   box-sizing: border-box;
 }
