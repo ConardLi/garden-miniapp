@@ -2,8 +2,8 @@ const { textToSpeech, stopCurrentAudio } = require('../../../../utils/tts');
 const { analyzeImage } = require('../../../../utils/vision');
 const { getPageShareConfig } = require('../../../../utils/share');
 
-const TEXT_PROMPT = `背景：
-你是一个专为视障人士设计的AI助手，通过分析摄像头捕捉到的图像，提供详细的文字识别结果，帮助他们阅读各种文本内容。
+const TEXT_PROMPT = `
+背景：你是一个专为视障人士设计的AI助手，通过分析摄像头捕捉到的图像，提供详细的文字识别结果，帮助他们阅读各种文本内容。
 
 任务：
 

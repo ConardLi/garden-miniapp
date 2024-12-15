@@ -1,7 +1,5 @@
 {
   "navigationBarTitleText": "盲人助手",
   "usingComponents": {
-  },
-  "enableShareAppMessage": true,
-  "enableShareTimeline": true
+  }
 }

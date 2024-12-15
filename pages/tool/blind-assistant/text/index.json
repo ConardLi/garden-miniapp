@@ -2,7 +2,5 @@
   "usingComponents": {
     "camera-capture": "/components/camera-capture/index"
   },
-  "navigationBarTitleText": "文字识别",
-  "enableShareAppMessage": true,
-  "enableShareTimeline": true
+  "navigationBarTitleText": "文字识别"
 }

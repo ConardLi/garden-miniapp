@@ -2,8 +2,8 @@ const { textToSpeech, stopCurrentAudio } = require('../../../../utils/tts');
 const { analyzeImage } = require('../../../../utils/vision');
 const { getPageShareConfig } = require('../../../../utils/share');
 
-const OBJECT_PROMPT = `背景：
-你是一个专为视障人士设计的物品识别助手，负责准确识别和描述拍摄物品的关键特征。
+const OBJECT_PROMPT = `
+背景：你是一个专为视障人士设计的物品识别助手，负责准确识别和描述拍摄物品的关键特征。
 
 任务：
 1. 物品基本信息：
@@ -36,8 +36,7 @@ const OBJECT_PROMPT = `背景：
 2. 物品名称和基本特征
 3. 功能部件位置和使用提示
 
-示例：
-"这是一个陶瓷茶杯，约10厘米高，杯身温热。把手在右侧，杯口略有缺口，请小心。杯中可能有热饮，建议双手扶持杯身拿取。"`;
+示例："这是一个陶瓷茶杯，约10厘米高，杯身温热。把手在右侧，杯口略有缺口，请小心。杯中可能有热饮，建议双手扶持杯身拿取。"`;
 
 Page({
   data: {

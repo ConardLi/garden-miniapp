@@ -2,7 +2,5 @@
   "usingComponents": {
     "tool-card": "/components/tool-card/index"
   },
-  "navigationBarTitleText": "AI工具箱",
-  "enableShareAppMessage": true,
-  "enableShareTimeline": true
+  "navigationBarTitleText": "AI工具箱"
 }

@@ -2,7 +2,5 @@
   "usingComponents": {
     "camera-capture": "/components/camera-capture/index"
   },
-  "navigationBarTitleText": "导航辅助",
-  "enableShareAppMessage": true,
-  "enableShareTimeline": true
+  "navigationBarTitleText": "导航辅助"
 }

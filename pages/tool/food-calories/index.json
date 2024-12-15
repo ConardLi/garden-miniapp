@@ -2,7 +2,5 @@
   "navigationBarTitleText": "食物热量查询",
   "usingComponents": {
     "camera-capture": "/components/camera-capture/index"
-  },
-  "enableShareAppMessage": true,
-  "enableShareTimeline": true
+  }
 }

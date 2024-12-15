@@ -83,9 +83,7 @@ const textToSpeech = async (text) => {
 
     return new Promise((resolve, reject) => {
       console.log('开始请求音频...');
-      
       console.log('请求参数:', params);
-      params.txt = '哈哈哈哈1'
       // 直接发送 POST 请求获取音频数据
       wx.request({
         url: config.baidu.speech.urls.tts,

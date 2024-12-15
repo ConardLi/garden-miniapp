@@ -54,7 +54,6 @@
       "sdkVersionEnd": "15.255.255"
     }
   },
-  "enableShareTimeline": true,
   "lazyCodeLoading": "requiredComponents",
   "sitemapLocation": "sitemap.json",
   "miniprogramRoot": "./",

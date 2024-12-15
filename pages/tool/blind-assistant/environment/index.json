@@ -2,7 +2,5 @@
   "navigationBarTitleText": "环境描述",
   "usingComponents": {
     "camera-capture": "/components/camera-capture/index"
-  },
-  "enableShareAppMessage": true,
-  "enableShareTimeline": true
+  }
 }
