@@ -1,44 +1,72 @@
 .container {
   min-height: 100vh;
-  background: #f5f5f5;
-  padding: 24rpx 0;
-  box-sizing: border-box;
+  background: #f6f6f6;
+  padding: 0;
+  margin: 0;
+  display: block;
 }
 
-.search-box {
-  margin: 0 24rpx 16rpx;
+/* 轮播图 */
+.banner {
+  width: 100%;
+  height: 300rpx;
+  margin: 0;
+  padding: 0;
+  margin-bottom: 30rpx;
+}
+
+.banner image {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* 内容区域 */
+.content-wrapper {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 0 30rpx;
+  margin-bottom: 30rpx;
+}
+
+.section {
+  padding: 30rpx;
   background: #ffffff;
-  border-radius: 16rpx;
-  padding: 16rpx 24rpx;
+  border-radius: 12rpx;
+}
+
+.section:last-child {
+  margin-top: 30rpx;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16rpx;
+}
+
+.section-title {
+  font-size: 32rpx;
+  font-weight: 600;
+  color: #333;
+}
+
+.more {
   display: flex;
   align-items: center;
-  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.05);
+  color: #666;
+  font-size: 24rpx;
 }
 
-.search-box icon {
-  margin-right: 12rpx;
+.arrow {
+  margin-left: 4rpx;
 }
 
-.search-input {
-  flex: 1;
-  height: 48rpx;
-  min-width: 0;
-  font-size: 28rpx;
-  color: #333333;
-}
-
-.search-input::placeholder {
-  color: #999999;
-}
-
-.tool-list {
-  flex: 1;
-  overflow: hidden;
-}
-
-.empty-state {
-  text-align: center;
-  color: #999;
-  padding: 48rpx 0;
-  font-size: 28rpx;
+/* 工具网格 */
+.tool-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30rpx;
+  padding: 0;
 }

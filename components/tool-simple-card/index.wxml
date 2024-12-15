@@ -1,0 +1,4 @@
+<view class="tool-simple-card" bindtap="onTap">
+  <image class="tool-icon" src="/assets/images/{{tool.icon}}" mode="aspectFit" />
+  <text class="tool-name">{{tool.name}}</text>
+</view>

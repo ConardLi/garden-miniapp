@@ -1,17 +1,39 @@
 // 首页逻辑
-import { tools } from '../../config/tools';
-import { getPageShareConfig } from '../../utils/share'
+import { tools, popularTools, newTools } from '../../config/tools';
+import { banners } from '../../config/banners';
+import { getPageShareConfig } from '../../utils/share';
 
 Page({
   data: {
+    banners: banners.list,
     searchValue: '',
     toolList: tools,
-    filteredToolList: []
+    filteredToolList: [],
+    popularToolsList: [],
+    newToolsList: []
   },
 
   onLoad() {
+    this.initToolsData();
     this.setData({
       filteredToolList: this.data.toolList
+    });
+  },
+
+  initToolsData() {
+    // 获取热门推荐工具列表
+    const popularToolsList = popularTools.map(id => 
+      tools.find(tool => tool.id === id)
+    ).filter(Boolean);
+
+    // 获取最新上新工具列表
+    const newToolsList = newTools.map(id => 
+      tools.find(tool => tool.id === id)
+    ).filter(Boolean);
+
+    this.setData({
+      popularToolsList,
+      newToolsList
     });
   },
 
@@ -40,6 +62,17 @@ Page({
     );
     this.setData({
       filteredToolList: filtered
+    });
+  },
+
+  onBannerTap(e) {
+    const { link } = e.currentTarget.dataset;
+    wx.navigateTo({ url: link });
+  },
+
+  navigateToCategory() {
+    wx.switchTab({
+      url: '/pages/category/index'
     });
   },
 
