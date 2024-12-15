@@ -1,7 +1,7 @@
 <view class="tool-card" bind:tap="onTap">
   <image 
     class="tool-icon" 
-    src="/assets/images/{{tool.icon}}" 
+    src="{{tool.icon}}" 
     mode="aspectFit"
   ></image>
   <view class="tool-info">
