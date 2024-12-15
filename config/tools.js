@@ -91,22 +91,6 @@ export const tools = [
     category: 'image'
   },
   {
-    id: 'content-writer-douyin',
-    name: '爆款写作',
-    description: '抖音短视频爆款文案写作',
-    icon: pre + 'douyin.svg',
-    path: '/pages/tool/content-writer-douyin/index',
-    category: 'creation'
-  },
-  {
-    id: 'content-writer-xiaohongshu',
-    name: '爆款写作',
-    description: '小红书爆款文案写作',
-    icon: pre + 'xiaohongshu.svg',
-    path: '/pages/tool/content-writer-xiaohongshu/index',
-    category: 'creation'
-  },
-  {
     id: 'watermark-remover',
     name: '图片去水印',
     description: '智能去除图片水印',

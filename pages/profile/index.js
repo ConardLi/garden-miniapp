@@ -195,22 +195,6 @@ Page({
     }
   },
 
-  onRewardTap() {
-    wx.showModal({
-      title: '感谢支持',
-      content: '如果觉得小程序对您有帮助，欢迎打赏支持开发者继续维护和更新',
-      confirmText: '立即打赏',
-      success(res) {
-        if (res.confirm) {
-          // 打开打赏二维码图片
-          wx.previewImage({
-            urls: ['/assets/images/reward-qr.png']
-          })
-        }
-      }
-    })
-  },
-
   onClearCacheTap() {
     wx.showModal({
       title: '清理缓存',
