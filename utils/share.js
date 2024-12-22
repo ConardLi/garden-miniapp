@@ -27,6 +27,10 @@ export const getPageShareConfig = (pagePath, pageData = {}) => {
     '/pages/tool/qrcode-generator/index': {
       title: '二维码解析',
       path: '/pages/tool/qrcode-generator/index'
+    },
+    '/pages/tool/image-compress/index': {
+      title: '图片压缩',
+      path: '/pages/tool/image-compress/index'
     }
   }
 

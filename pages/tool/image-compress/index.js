@@ -1,3 +1,5 @@
+const { getPageShareConfig } = require('../../../utils/share');
+
 // pages/tool/image-compress/index.js
 Page({
   data: {
@@ -249,5 +251,13 @@ Page({
       current,
       urls: [current]
     })
+  },
+
+  onShareAppMessage() {
+    return getPageShareConfig('/pages/tool/image-compress/index');
+  },
+
+  onShareTimeline() {
+    return getPageShareConfig('/pages/tool/image-compress/index');
   }
 })
