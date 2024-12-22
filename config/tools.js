@@ -35,6 +35,14 @@ export const tools = [
     category: 'vision'
   },
   {
+    id: 'text-recognition',
+    name: '文字识别',
+    description: '智能识别图片中的文字内容',
+    icon: pre + 'txt.svg',
+    path: '/pages/tool/text-recognition/index',
+    category: 'vision'
+  },
+  {
     id: 'blind-assistant',
     name: '盲人助手',
     description: '为视障人士提供视觉辅助',
@@ -57,7 +65,7 @@ export const tools = [
     icon: pre + 'image.svg',
     path: '/pages/tool/bg-remover/index',
     category: 'image'
-  },
+  },  
   {
     id: 'text-extractor-douyin',
     name: '文案提取',
@@ -139,5 +147,6 @@ export const newTools = [
   'qrcode-generator',
   'id-photo',
   'content-writer-xiaohongshu',
-  'image-compress'
+  'image-compress',
+  'text-recognition'
 ];

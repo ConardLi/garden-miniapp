@@ -1,0 +1,106 @@
+<view class="container">
+  <!-- 主界面 -->
+  <block wx:if="{{!showResult}}">
+    <view class="header">
+      <image class="header-bg" src="https://garden-1257917459.cos.ap-beijing.myqcloud.com/miniapp/text-bg2.jpg" mode="aspectFill" />
+      <view class="header-overlay"></view>
+      <view class="header-content">
+        <text class="header-title">文字识别</text>
+        <text class="header-desc">智能识别图片中的文字内容</text>
+      </view>
+    </view>
+
+    <view class="features">
+      <view class="feature-item">
+        <view class="feature-icon-wrap">
+          <image class="feature-icon" src="https://garden-1257917459.cos.ap-beijing.myqcloud.com/miniapp/txt.svg" mode="aspectFit" />
+        </view>
+        <text class="feature-title">文字提取</text>
+        <text class="feature-desc">准确识别各类文字</text>
+      </view>
+      <view class="feature-item">
+        <view class="feature-icon-wrap">
+          <image class="feature-icon" src="https://garden-1257917459.cos.ap-beijing.myqcloud.com/miniapp/translator.svg" mode="aspectFit" />
+        </view>
+        <text class="feature-title">多语言</text>
+        <text class="feature-desc">支持多语言识别</text>
+      </view>
+      <view class="feature-item">
+        <view class="feature-icon-wrap">
+          <image class="feature-icon" src="https://garden-1257917459.cos.ap-beijing.myqcloud.com/miniapp/copy.svg" mode="aspectFit" />
+        </view>
+        <text class="feature-title">一键复制</text>
+        <text class="feature-desc">快速获取文字内容</text>
+      </view>
+    </view>
+
+    <view class="action-area">
+      <button class="capture-btn" bindtap="startCapture">
+        <image class="camera-icon" src="/assets/images/camera.svg" mode="aspectFit" />
+        <text>开始识别</text>
+      </button>
+
+      <view class="tips-card">
+        <text class="tips-title">使用小贴士</text>
+        <view class="tips-list">
+          <view class="tip-item">
+            <text class="tip-dot">•</text>
+            <text class="tip-text">确保文字清晰可见，避免模糊</text>
+          </view>
+          <view class="tip-item">
+            <text class="tip-dot">•</text>
+            <text class="tip-text">光线充足时识别效果更好</text>
+          </view>
+          <view class="tip-item">
+            <text class="tip-dot">•</text>
+            <text class="tip-text">支持中英文等多语言识别</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </block>
+
+  <!-- 结果界面 -->
+  <block wx:else>
+    <view class="result-page">
+      <view class="result-header">
+        <view class="back-btn" bindtap="retake">
+          <image class="back-icon" src="/assets/images/back.png" mode="aspectFit" />
+          <text>重新识别</text>
+        </view>
+        <view class="home-btn" bindtap="goBack">
+          <image class="home-icon" src="/assets/images/home.png" mode="aspectFit" />
+          <text>回到首页</text>
+        </view>
+      </view>
+
+      <view class="result-content">
+        <view class="image-preview">
+          <image src="{{imagePath}}" mode="aspectFit" />
+        </view>
+
+        <view class="result-card">
+          <view class="loading-box" wx:if="{{loading}}">
+            <view class="loading-spinner"></view>
+            <text>正在识别中...</text>
+          </view>
+
+          <block wx:elif="{{noText}}">
+            <view class="no-result">
+              <image class="no-result-icon" src="/assets/images/no-result.svg" mode="aspectFit" />
+              <text>未能识别到文字内容</text>
+              <text class="no-result-tip">请确保图片清晰且包含文字</text>
+            </view>
+          </block>
+
+          <block wx:elif="{{text}}">
+            <view class="text-result">
+              <text class="content-text">{{text}}</text>
+              <button class="copy-btn" bindtap="copyText">复制文本</button>
+            </view>
+          </block>
+        </view>
+      </view>
+    </view>
+  </block>
+</view>

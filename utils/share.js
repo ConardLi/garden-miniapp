@@ -31,6 +31,10 @@ export const getPageShareConfig = (pagePath, pageData = {}) => {
     '/pages/tool/image-compress/index': {
       title: '图片压缩',
       path: '/pages/tool/image-compress/index'
+    },
+    '/pages/tool/text-recognition/index': {
+      title: '文字识别',
+      path: '/pages/tool/text-recognition/index'
     }
   }
 
