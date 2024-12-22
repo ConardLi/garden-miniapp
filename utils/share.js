@@ -23,6 +23,10 @@ export const getPageShareConfig = (pagePath, pageData = {}) => {
     '/pages/tool/image-recognition/index': {
       title: '智能物体识别 - AI图像识别',
       path: '/pages/tool/image-recognition/index'
+    },
+    '/pages/tool/qrcode-generator/index': {
+      title: '二维码解析',
+      path: '/pages/tool/qrcode-generator/index'
     }
   }
 

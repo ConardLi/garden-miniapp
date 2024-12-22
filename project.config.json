@@ -14,7 +14,7 @@
     "minified": true,
     "newFeature": false,
     "coverView": true,
-    "nodeModules": false,
+    "nodeModules": true,
     "autoAudits": false,
     "showShadowRootInWxmlPanel": true,
     "scopeDataCheck": false,
@@ -49,8 +49,11 @@
   ],
   "condition": {},
   "editorSetting": {
-    "tabIndent": "auto",
+    "tabIndent": "insertSpaces",
     "tabSize": 2
   },
-  "appid": "wxaec6b9508f4e391e"
+  "appid": "wxaec6b9508f4e391e",
+  "cloudfunctionTemplateRoot": "server/cloudfunctionTemplate/",
+  "cloudfunctionRoot": "server/cloudfunctions/",
+  "description": "项目配置文件，详见文档：https://developers.weixin.qq.com/miniprogram/dev/devtools/projectconfig.html"
 }

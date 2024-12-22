@@ -1,3 +1,5 @@
 /config/secret.js
 project.private.config.json
 .DS_Store
+node_modules
+

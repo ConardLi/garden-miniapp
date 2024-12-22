@@ -1,0 +1,39 @@
+<view class="container">
+  <view class="input-section">
+    <textarea 
+      class="input-area" 
+      placeholder="请输入要生成二维码的文本内容（文本、网址等）" 
+      value="{{inputText}}"
+      bindinput="onInputChange"
+      maxlength="500"
+    ></textarea>
+    <view class="button-group">
+      <button 
+        class="scan-btn" 
+        bindtap="scanQRCode"
+      >
+        扫描二维码
+      </button>
+      <button 
+        class="generate-btn" 
+        type="primary" 
+        bindtap="generateQRCode"
+        loading="{{loading}}"
+      >生成二维码</button>
+    </view>
+  </view>
+
+  <view class="qrcode-section" wx:if="{{showQRCode}}">
+    <image 
+      class="qrcode-image" 
+      src="{{qrCodeUrl}}" 
+      mode="aspectFit"
+      show-menu-by-longpress
+    ></image>
+    <button 
+      class="save-btn" 
+      type="primary" 
+      bindtap="saveQRCode"
+    >保存到相册</button>
+  </view>
+</view>

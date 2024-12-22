@@ -1,8 +1,16 @@
+const { wxEnv } = require('./config/secret');
+
 // app.js
 const log = wx.getRealtimeLogManager ? wx.getRealtimeLogManager() : null
 
 App({
   onLaunch() {
+    // 初始化云开发环境
+    wx.cloud.init({
+      env: wxEnv, // 请替换为你的云开发环境ID
+      traceUser: true
+    })
+
     // 展示本地存储能力
     const logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())

@@ -1,0 +1,10 @@
+{
+  "name": "generateQRCode",
+  "version": "1.0.0",
+  "description": "Generate QR Code cloud function",
+  "main": "index.js",
+  "dependencies": {
+    "wx-server-sdk": "~2.6.3",
+    "qrcode": "^1.5.0"
+  }
+}

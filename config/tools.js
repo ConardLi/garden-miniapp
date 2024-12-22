@@ -108,18 +108,10 @@ export const tools = [
   },
   {
     id: 'qrcode-generator',
-    name: '二维码生成',
-    description: '生成自定义二维码',
+    name: '二维码工具',
+    description: '生成 & 解析二维码',
     icon: pre + 'qrcode.svg',
     path: '/pages/tool/qrcode-generator/index',
-    category: 'image'
-  },
-  {
-    id: 'qrcode-scanner',
-    name: '二维码解析',
-    description: '扫描解析二维码内容',
-    icon: pre + 'qrcode.svg',
-    path: '/pages/tool/qrcode-scanner/index',
     category: 'image'
   }
 ];
