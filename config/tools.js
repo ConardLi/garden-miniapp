@@ -113,6 +113,14 @@ export const tools = [
     icon: pre + 'qrcode.svg',
     path: '/pages/tool/qrcode-generator/index',
     category: 'image'
+  },
+  {
+    id: 'image-compress',
+    name: '图片压缩',
+    description: '快速压缩图片，支持JPG、PNG等格式',
+    icon:  pre + 'icon-recognition.svg',
+    path: '/pages/tool/image-compress/index',
+    category: 'image'
   }
 ];
 
@@ -130,5 +138,6 @@ export const newTools = [
   'translator',
   'qrcode-generator',
   'id-photo',
-  'content-writer-xiaohongshu'
+  'content-writer-xiaohongshu',
+  'image-compress'
 ];

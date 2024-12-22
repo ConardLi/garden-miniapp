@@ -8,6 +8,7 @@
     "pages/tool/blind-assistant/text/index",
     "pages/tool/food-calories/index",
     "pages/tool/qrcode-generator/index",
+    "pages/tool/image-compress/index",
     "pages/category/index",
     "pages/profile/index",
     "pages/tool/detail",
