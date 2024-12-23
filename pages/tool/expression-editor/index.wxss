@@ -1,0 +1,384 @@
+/* 容器 */
+.container {
+  min-height: 100vh;
+  background: #f7f8fa;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* 头部区域 */
+.header {
+  position: relative;
+  height: 360rpx;
+  width: 100%;
+  overflow: hidden;
+  border-bottom-left-radius: 40rpx;
+  border-bottom-right-radius: 40rpx;
+}
+
+.header-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.header-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.6));
+  z-index: 2;
+}
+
+.header-content {
+  position: absolute;
+  bottom: 40rpx;
+  left: 40rpx;
+  right: 40rpx;
+  z-index: 3;
+}
+
+.header-title {
+  font-size: 48rpx;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 16rpx;
+  display: block;
+  text-shadow: 0 2rpx 4rpx rgba(0,0,0,0.2);
+}
+
+.header-desc {
+  font-size: 28rpx;
+  color: rgba(255,255,255,0.9);
+  display: block;
+}
+
+/* 图片选择区域 */
+.image-section {
+  margin: 30rpx;
+  border-radius: 20rpx;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 4rpx 16rpx rgba(0,0,0,0.05);
+}
+
+.upload-box {
+  height: 400rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #f8f9fa;
+}
+
+.upload-icon {
+  width: 80rpx;
+  height: 80rpx;
+  margin-bottom: 20rpx;
+}
+
+.upload-text {
+  font-size: 28rpx;
+  color: #333;
+  margin-bottom: 12rpx;
+}
+
+.upload-tip {
+  font-size: 24rpx;
+  color: #999;
+}
+
+.image-box {
+  position: relative;
+  width: 100%;
+  height: 400rpx;
+  background: #f8f9fa;
+}
+
+.preview-image {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.image-actions {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 20rpx;
+  background: linear-gradient(to top, rgba(0,0,0,0.5), transparent);
+  display: flex;
+  justify-content: flex-end;
+}
+
+.action-btn {
+  padding: 12rpx 24rpx;
+  border-radius: 8rpx;
+  background: rgba(255,255,255,0.9);
+  color: #333;
+  font-size: 24rpx;
+}
+
+/* 表情选择区域 */
+.expression-section {
+  margin: 30rpx;
+  padding: 30rpx;
+  border-radius: 20rpx;
+  background: #fff;
+  box-shadow: 0 4rpx 16rpx rgba(0,0,0,0.05);
+}
+
+.section-title {
+  font-size: 28rpx;
+  color: #333;
+  margin-bottom: 20rpx;
+  font-weight: 500;
+}
+
+.expression-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20rpx;
+}
+
+.expression-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20rpx;
+  border-radius: 12rpx;
+  background: #f8f9fa;
+  transition: all 0.3s;
+}
+
+.expression-item.selected {
+  background: #e7f7ed;
+  color: #07c160;
+}
+
+.expression-item text {
+  font-size: 28rpx;
+}
+
+/* 自定义输入框样式 */
+.custom-input {
+  margin-top: 20rpx;
+  padding: 20rpx;
+  background: #f8f9fa;
+  border-radius: 12rpx;
+}
+
+.prompt-input {
+  width: 100%;
+  min-height: 120rpx;
+  padding: 20rpx;
+  background: #fff;
+  border-radius: 8rpx;
+  font-size: 28rpx;
+  line-height: 1.5;
+  box-sizing: border-box;
+}
+
+.input-counter {
+  text-align: right;
+  font-size: 24rpx;
+  color: #999;
+  margin-top: 8rpx;
+}
+
+/* 编辑强度调节 */
+.scale-section {
+  margin: 30rpx;
+  padding: 30rpx;
+  border-radius: 20rpx;
+  background: #fff;
+  box-shadow: 0 4rpx 16rpx rgba(0,0,0,0.05);
+}
+
+.scale-labels {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 12rpx;
+  font-size: 24rpx;
+  color: #999;
+}
+
+/* 按钮样式 */
+.action-section {
+  margin-top: 40rpx;
+  padding: 0 30rpx;
+}
+
+.primary-btn, .secondary-btn {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+}
+
+.primary-btn {
+  width: 100% !important;
+  height: 88rpx;
+  line-height: 88rpx;
+  border-radius: 44rpx;
+  background: #07c160;
+  color: #fff;
+  font-size: 32rpx;
+  font-weight: 500;
+  border: none;
+}
+
+.primary-btn.disabled {
+  opacity: 0.6;
+}
+
+.secondary-btn {
+  width: 100% !important;
+  height: 88rpx;
+  line-height: 88rpx;
+  border-radius: 44rpx;
+  background: #f8f9fa;
+  color: #333;
+  font-size: 32rpx;
+  font-weight: 500;
+  border: none;
+  margin-top: 20rpx;
+}
+
+/* 结果弹窗样式 */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.modal-content {
+  position: relative;
+  width: 90%;
+  max-width: 600rpx;
+  background: #fff;
+  border-radius: 20rpx;
+  padding: 40rpx 30rpx;
+  z-index: 1001;
+}
+
+.close-btn {
+  position: absolute;
+  top: 20rpx;
+  right: 20rpx;
+  padding: 10rpx 20rpx;
+  font-size: 28rpx;
+  color: #666;
+  background: #f5f5f5;
+  border-radius: 8rpx;
+}
+
+.close-btn:active {
+  opacity: 0.8;
+}
+
+.result-images {
+  display: flex;
+  flex-direction: column;
+  gap: 30rpx;
+  margin: 20rpx 0 40rpx;
+}
+
+.image-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10rpx;
+}
+
+.image-item image {
+  width: 100%;
+  height: 400rpx;
+  border-radius: 12rpx;
+  background: #f8f9fa;
+}
+
+.image-item text {
+  font-size: 28rpx;
+  color: #666;
+}
+
+/* 加载状态 */
+.loading-box {
+  padding: 60rpx 30rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.loading-spinner {
+  width: 64rpx;
+  height: 64rpx;
+  border: 4rpx solid #f3f3f3;
+  border-top: 4rpx solid #07c160;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 20rpx;
+}
+
+.loading-text {
+  font-size: 28rpx;
+  color: #333;
+  margin-bottom: 12rpx;
+}
+
+.loading-tip {
+  font-size: 24rpx;
+  color: #999;
+}
+
+/* 错误状态 */
+.error-box {
+  padding: 60rpx 30rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.error-icon {
+  width: 80rpx;
+  height: 80rpx;
+  margin-bottom: 20rpx;
+}
+
+.error-text {
+  font-size: 28rpx;
+  color: #333;
+  margin-bottom: 12rpx;
+}
+
+.error-tip {
+  font-size: 24rpx;
+  color: #999;
+  margin-bottom: 30rpx;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

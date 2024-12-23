@@ -35,6 +35,10 @@ export const getPageShareConfig = (pagePath, pageData = {}) => {
     '/pages/tool/text-recognition/index': {
       title: '文字识别',
       path: '/pages/tool/text-recognition/index'
+    },
+    '/pages/tool/expression-editor/index': {
+      title: '表情编辑',
+      path: '/pages/tool/expression-editor/index'
     }
   }
 

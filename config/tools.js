@@ -129,6 +129,14 @@ export const tools = [
     icon:  pre + 'icon-recognition.svg',
     path: '/pages/tool/image-compress/index',
     category: 'image'
+  },
+  {
+    id: 'expression-editor',
+    name: '表情编辑',
+    description: '一键改变照片中的表情',
+    icon: pre + 'expression.svg',
+    path: '/pages/tool/expression-editor/index',
+    category: 'image'
   }
 ];
 
@@ -138,7 +146,8 @@ export const popularTools = [
   'food-calories',
   'image-recognition',
   'bg-remover',
-  'text-extractor-douyin'
+  'text-extractor-douyin',
+  'expression-editor',
 ];
 
 // 最近上新工具ID列表

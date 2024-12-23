@@ -13,7 +13,8 @@
     "pages/category/index",
     "pages/profile/index",
     "pages/tool/detail",
-    "pages/tool/image-recognition/index"
+    "pages/tool/image-recognition/index",
+    "pages/tool/expression-editor/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

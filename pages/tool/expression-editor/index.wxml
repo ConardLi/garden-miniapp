@@ -1,0 +1,116 @@
+<view class="page">
+  <view class="page-container">
+    <!-- 图片选择区域 -->
+    <view class="image-section">
+      <block wx:if="{{!imagePath}}">
+        <view class="upload-box" bindtap="chooseImage">
+          <image class="upload-icon" src="https://garden-1257917459.cos.ap-beijing.myqcloud.com/miniapp/camera.svg" mode="aspectFit" />
+          <text class="upload-text">点击选择照片</text>
+          <text class="upload-tip">建议图片大小不超过10MB</text>
+        </view>
+      </block>
+      <block wx:else>
+        <view class="image-box">
+          <image class="preview-image" src="{{imagePath}}" mode="aspectFit" bindtap="previewImage" />
+          <view class="image-actions">
+            <view class="action-btn" bindtap="chooseImage">重新选择</view>
+          </view>
+        </view>
+      </block>
+    </view>
+
+    <!-- 表情选择区域 -->
+    <view class="expression-section" wx:if="{{imagePath}}">
+      <view class="section-title">选择表情</view>
+      <view class="expression-grid">
+        <view 
+          class="expression-item {{selectedExpression.id === item.id ? 'selected' : ''}}" 
+          wx:for="{{expressions}}" 
+          wx:key="id"
+          data-id="{{item.id}}"
+          bindtap="selectExpression"
+        >
+          <text>{{item.name}}</text>
+        </view>
+        <!-- 自定义表情输入 -->
+        <view 
+          class="expression-item custom {{isCustom ? 'selected' : ''}}"
+          bindtap="toggleCustom"
+        >
+          <text>自定义</text>
+        </view>
+      </view>
+      
+      <!-- 自定义表情输入框 -->
+      <view class="custom-input" wx:if="{{isCustom}}">
+        <textarea
+          class="prompt-input"
+          placeholder="请输入想要的表情描述，例如：'让他露出温暖自然的微笑'"
+          value="{{customPrompt}}"
+          bindinput="updateCustomPrompt"
+          maxlength="100"
+          auto-height
+        />
+        <view class="input-counter">{{customPrompt.length}}/100</view>
+      </view>
+    </view>
+
+    <!-- 编辑强度调节 -->
+    <view class="scale-section" wx:if="{{selectedExpression}}">
+      <view class="section-title">编辑强度</view>
+      <slider 
+        min="0.1" 
+        max="0.9" 
+        step="0.1" 
+        value="{{scale}}" 
+        block-size="20" 
+        activeColor="#07c160"
+        backgroundColor="#eee"
+        bindchange="adjustScale"
+      />
+      <view class="scale-labels">
+        <text>弱</text>
+        <text>强</text>
+      </view>
+    </view>
+
+    <!-- 操作按钮 -->
+    <view class="action-section">
+      <button 
+        class="primary-btn {{loading ? 'loading' : ''}}" 
+        bindtap="startEdit"
+        disabled="{{!selectedExpression || loading}}"
+      >
+        <view class="loading-icon" wx:if="{{loading}}"></view>
+        <text>{{loading ? '编辑中...' : '开始编辑'}}</text>
+      </button>
+    </view>
+  </view>
+
+  <!-- 结果展示弹窗 -->
+  <view class="modal" wx:if="{{showResult}}">
+    <view class="modal-mask" bindtap="reset"></view>
+    <view class="modal-content">
+      <view class="close-btn" bindtap="reset">关闭</view>
+      <view class="result-images">
+        <view class="image-item">
+          <image src="{{imagePath}}" mode="aspectFit" />
+          <text>原图</text>
+        </view>
+        <view class="image-item">
+          <image src="{{editedImageUrl}}" mode="aspectFit" />
+          <text>编辑后</text>
+        </view>
+      </view>
+      <button 
+        class="secondary-btn" 
+        bindtap="saveImage"
+      >保存图片</button>
+    </view>
+  </view>
+
+  <!-- 错误提示 -->
+  <view class="error-toast" wx:if="{{editFailed}}">
+    {{errorMessage}}
+  </view>
+</view>
