@@ -1,6 +1,6 @@
 // 默认的分享配置
 export const defaultShareConfig = {
-  title: 'AI工具箱 - 你的智能生活助手',
+  title: '花园工具箱 - 你的智能生活助手',
   path: '/pages/home/index',
   imageUrl: '/assets/images/share-cover.png'
 }
@@ -39,6 +39,10 @@ export const getPageShareConfig = (pagePath, pageData = {}) => {
     '/pages/tool/expression-editor/index': {
       title: '表情编辑',
       path: '/pages/tool/expression-editor/index'
+    },
+    '/pages/tool/translator/index': {
+      title: '翻译大师',
+      path: '/pages/tool/translator/index'
     }
   }
 

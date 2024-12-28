@@ -111,6 +111,35 @@ const seededit = async (imageUrls, prompt, options = {}) => {
   }
 };
 
+/**
+ * 调用豆包大模型
+ * @param {string} prompt - 用户输入的提示词
+ * @param {Object} options - 其他选项
+ * @returns {Promise} 响应结果
+ */
+const doubao = async (prompt, options = {}) => {
+  const endpoint = '/v1/chat/completions';
+  const data = {
+    model: 'Doubao-pro-32k',
+    messages: [
+      {
+        role: 'user',
+        content: prompt
+      }
+    ],
+    ...options
+  };
+  
+  try {
+    const response = await request(endpoint, data);
+    return response;
+  } catch (error) {
+    console.error('豆包模型调用失败:', error);
+    throw error;
+  }
+};
+
 module.exports = {
-  seededit
+  seededit,
+  doubao
 };

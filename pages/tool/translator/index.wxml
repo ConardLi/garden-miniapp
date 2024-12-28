@@ -1,0 +1,46 @@
+<view class="x-container">
+  <view class="translate-panel">
+    <view class="input-area">
+      <textarea class="text-area" placeholder="请输入需要翻译的文本" placeholder-style="color: #999;" bindinput="onInputChange" value="{{inputText}}" maxlength="-1" show-confirm-bar="{{false}}" auto-height />
+      <view class="toolbar">
+        <view class="lang-group">
+          <picker class="lang-picker" bindchange="onSourceLanguageChange" value="{{sourceLanguageIndex}}" range="{{languages}}" range-key="name">
+            <text class="picker-text">{{languages[sourceLanguageIndex].name}}</text>
+          </picker>
+          <text class="divider">></text>
+          <picker class="lang-picker" bindchange="onTargetLanguageChange" value="{{targetLanguageIndex}}" range="{{targetLanguages}}" range-key="name">
+            <text class="picker-text">{{targetLanguages[targetLanguageIndex].name}}</text>
+          </picker>
+        </view>
+        <text class="char-count" wx:if="{{inputText}}">{{inputText.length}} 字</text>
+      </view>
+    </view>
+
+    <button class="translate-btn {{!inputText ? 'disabled' : ''}}" hover-class="btn-hover" bindtap="translate" disabled="{{!inputText}}">翻译</button>
+
+    <view class="result-container" wx:if="{{translatedText}}">
+      <view class="result-header">
+        <text class="result-title">译文</text>
+        <view class="action-group">
+          <button class="action-btn" hover-class="btn-hover" bindtap="copyResult">
+            <image class="action-icon" src="https://garden-1257917459.cos.ap-beijing.myqcloud.com/miniapp/copy_black.svg" mode="aspectFit"></image>
+          </button>
+          <button class="action-btn" hover-class="btn-hover" open-type="share">
+            <image class="action-icon" src="https://garden-1257917459.cos.ap-beijing.myqcloud.com/miniapp/share_black.svg" mode="aspectFit"></image>
+          </button>
+          <button class="action-btn" hover-class="btn-hover" bindtap="handleVoiceClick">
+            <image class="action-icon" src="https://garden-1257917459.cos.ap-beijing.myqcloud.com/miniapp/voice.svg" mode="aspectFit"></image>
+          </button>
+        </view>
+      </view>
+      <view class="result-content">
+        <text class="result-text">{{translatedText}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="loading-mask" wx:if="{{loading}}">
+    <text class="loading-text">正在翻译...</text>
+  </view>
+</view>
+
