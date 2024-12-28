@@ -137,9 +137,55 @@ const doubao = async (prompt, options = {}) => {
     console.error('豆包模型调用失败:', error);
     throw error;
   }
+
+  
+};
+
+/**
+ * 背景消除
+ * @param {string} imageUrl - 图片URL
+ * @returns {Promise<Object>} 处理后的图片对象
+ * @throws {Error} 当API调用失败时抛出错误
+ */
+const removeBackground = async (imageUrl) => {
+  console.log('[removeBackground] 开始处理图片:', imageUrl);
+  
+  try {
+    // 调用背景消除API
+    const response = await request('/302/submit/removebg-v2', {
+      image_url: imageUrl
+    });
+
+    console.log('[removeBackground] API响应:', response);
+
+    if (response.image?.url) {
+      return response.image;
+    } else if (response.error) {
+      throw new Error(`API错误: ${response.error}`);
+    } else {
+      throw new Error('处理失败: 未获取到输出图片');
+    }
+  } catch (error) {
+    console.error('[removeBackground] 发生错误:', error);
+    throw error;
+  }
+};
+
+/**
+ * 上传图片到云存储并获取URL
+ * @param {string} filePath - 本地文件路径
+ * @returns {Promise<string>} 图片URL
+ */
+const uploadToCloud = async (filePath) => {
+  console.log('[uploadToCloud] 开始上传图片:', filePath);
+  
+  // 这里需要实现上传到云存储的逻辑
+  // 可以使用微信云存储或其他云存储服务
+  throw new Error('需要实现上传到云存储的逻辑');
 };
 
 module.exports = {
   seededit,
-  doubao
+  doubao,
+  removeBackground
 };

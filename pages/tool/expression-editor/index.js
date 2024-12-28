@@ -51,7 +51,7 @@ Page({
       return;
     }
     wx.cloud.init({
-      env: 'prod-7gqu88z1ce47ca43',
+      env: 'prod-5gyximjp6011b31b',
       traceUser: true
     });
   },

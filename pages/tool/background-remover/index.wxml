@@ -1,0 +1,102 @@
+<view class="page">
+  <view class="page-container">
+    <!-- 顶部说明 -->
+    <view class="header" wx:if="{{!imageUrl}}">
+      <text class="header-title">AI背景消除</text>
+      <text class="header-desc">智能识别并移除图片背景，生成透明背景图片</text>
+    </view>
+
+    <!-- 图片选择区域 -->
+    <view class="image-section">
+      <block wx:if="{{!imageUrl}}">
+        <view class="upload-box" bindtap="chooseImage">
+          <image class="upload-icon" src="https://garden-1257917459.cos.ap-beijing.myqcloud.com/miniapp/camera.svg" mode="aspectFit" />
+          <text class="upload-text">点击选择照片</text>
+          <text class="upload-tip">建议图片大小不超过10MB</text>
+        </view>
+      </block>
+      <block wx:else>
+        <view class="image-box">
+          <view class="image-title">原图</view>
+          <image 
+            class="preview-image" 
+            src="{{imageUrl}}" 
+            mode="aspectFit" 
+            bindtap="previewImage" 
+            data-src="{{imageUrl}}" 
+          />
+          <view class="image-info">
+            <text>{{imageInfo.width}} x {{imageInfo.height}}</text>
+            <text class="divider">|</text>
+            <text>{{imageInfo.type}}</text>
+          </view>
+        </view>
+
+        <!-- 处理后的图片 -->
+        <view class="image-box result-box {{processedImageUrl ? 'has-result' : ''}}">
+          <view class="image-title">处理结果</view>
+          <block wx:if="{{processedImageUrl}}">
+            <image 
+              class="preview-image" 
+              src="{{processedImageUrl}}" 
+              mode="aspectFit" 
+              bindtap="previewImage" 
+              data-src="{{processedImageUrl}}" 
+            />
+            <view class="image-info">
+              <text>{{processedImageInfo.width}} x {{processedImageInfo.height}}</text>
+              <text class="divider">|</text>
+              <text>{{processedImageInfo.type}}</text>
+            </view>
+          </block>
+          <view class="placeholder" wx:else>
+            <text>点击下方按钮开始处理</text>
+          </view>
+        </view>
+      </block>
+    </view>
+
+    <!-- 操作按钮 -->
+    <view class="action-section" wx:if="{{imageUrl}}">
+      <button 
+        class="primary-btn {{isProcessing ? 'loading' : ''}}" 
+        bindtap="processImage"
+        disabled="{{isProcessing}}"
+      >
+        <view class="loading-icon" wx:if="{{isProcessing}}"></view>
+        <text>{{isProcessing ? '处理中...' : '开始处理'}}</text>
+      </button>
+
+      <button 
+        class="secondary-btn"
+        bindtap="saveImage"
+        disabled="{{!processedImageUrl}}"
+      >
+        保存到相册
+      </button>
+
+      <button 
+        class="secondary-btn"
+        bindtap="chooseImage"
+      >
+        重新选择
+      </button>
+    </view>
+
+    <!-- 底部提示 -->
+    <view class="tips" wx:if="{{!imageUrl}}">
+      <view class="tip-item">
+        <text class="tip-title">使用说明</text>
+        <text class="tip-text">1. 点击上方区域选择需要处理的图片</text>
+        <text class="tip-text">2. 点击"开始处理"，AI将自动识别并移除背景</text>
+        <text class="tip-text">3. 处理完成后可预览效果并保存图片</text>
+      </view>
+      <view class="tip-item">
+        <text class="tip-title">温馨提示</text>
+        <text class="tip-text">· 支持常见图片格式：JPG、PNG等</text>
+        <text class="tip-text">· 处理后将生成透明背景的PNG图片</text>
+        <text class="tip-text">· 处理时间约3-5秒，请耐心等待</text>
+      </view>
+    </view>
+  </view>
+</view>

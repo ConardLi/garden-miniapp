@@ -1,0 +1,238 @@
+.page {
+  min-height: 100vh;
+  background: #f7f7f7;
+}
+
+.page-container {
+  padding: 32rpx;
+}
+
+/* 顶部说明 */
+.header {
+  text-align: center;
+  margin-bottom: 48rpx;
+}
+
+.header-title {
+  display: block;
+  font-size: 40rpx;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 16rpx;
+}
+
+.header-desc {
+  display: block;
+  font-size: 28rpx;
+  color: #666;
+}
+
+/* 图片选择区域 */
+.image-section {
+  margin-bottom: 32rpx;
+}
+
+.upload-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  border-radius: 12rpx;
+  padding: 48rpx;
+  box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.upload-box:active {
+  transform: scale(0.98);
+  background: #f9f9f9;
+}
+
+.upload-icon {
+  width: 128rpx;
+  height: 128rpx;
+  margin-bottom: 24rpx;
+  background: url("data:image/svg+xml,%3Csvg t='1703756400974' class='icon' viewBox='0 0 1024 1024' version='1.1' xmlns='http://www.w3.org/2000/svg' p-id='4167' width='128' height='128'%3E%3Cpath d='M544 638.08V800h-64V638.08l-152.96-152.96 45.248-45.248L480 547.584V160h64v387.584l107.712-107.712 45.248 45.248L544 638.08z' fill='%23999999' p-id='4168'%3E%3C/path%3E%3Cpath d='M854.272 288L640 73.728V288h214.272zM896 326.272V928a32 32 0 0 1-32 32H160a32 32 0 0 1-32-32V96a32 32 0 0 1 32-32h448v262.272H896z' fill='%23999999' p-id='4169'%3E%3C/path%3E%3C/svg%3E") no-repeat center;
+  background-size: contain;
+}
+
+.upload-text {
+  font-size: 32rpx;
+  color: #333;
+  margin-bottom: 12rpx;
+}
+
+.upload-tip {
+  font-size: 24rpx;
+  color: #999;
+}
+
+/* 图片预览区域 */
+.image-box {
+  background: #fff;
+  border-radius: 12rpx;
+  padding: 24rpx;
+  margin-bottom: 24rpx;
+  box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.1);
+}
+
+.image-title {
+  font-size: 28rpx;
+  color: #333;
+  margin-bottom: 16rpx;
+  font-weight: 500;
+}
+
+.preview-image {
+  width: 100%;
+  height: 400rpx;
+  border-radius: 8rpx;
+  background: #f7f7f7;
+}
+
+.image-info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24rpx;
+  color: #999;
+  margin-top: 16rpx;
+}
+
+.divider {
+  margin: 0 12rpx;
+  color: #eee;
+}
+
+.result-box {
+  position: relative;
+  min-height: 200rpx;
+  transition: all 0.3s ease;
+}
+
+.result-box.has-result {
+  min-height: auto;
+}
+
+.placeholder {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #999;
+  font-size: 28rpx;
+}
+
+/* 操作按钮 */
+.action-section {
+  display: flex;
+  flex-direction: column;
+  gap: 20rpx;
+}
+
+.primary-btn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 88rpx;
+  background: #07c160;
+  color: #fff;
+  font-size: 32rpx;
+  border-radius: 12rpx;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.primary-btn:active {
+  transform: scale(0.98);
+  opacity: 0.9;
+}
+
+.primary-btn.loading {
+  background: #07c160;
+  opacity: 0.7;
+}
+
+.loading-icon {
+  width: 36rpx;
+  height: 36rpx;
+  margin-right: 12rpx;
+  animation: rotate 1s linear infinite;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23fff' d='M12,4a8,8,0,0,1,7.89,6.7A1.53,1.53,0,0,0,21.38,12h0a1.5,1.5,0,0,0,1.48-1.75,11,11,0,0,0-21.72,0A1.5,1.5,0,0,0,2.62,12h0a1.53,1.53,0,0,0,1.49-1.3A8,8,0,0,1,12,4Z'/%3E%3C/svg%3E") no-repeat center;
+  background-size: contain;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.secondary-btn {
+  width: 100%;
+  height: 88rpx;
+  background: #fff;
+  color: #333;
+  font-size: 32rpx;
+  border-radius: 12rpx;
+  border: 2rpx solid #ddd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.secondary-btn:active {
+  transform: scale(0.98);
+  background: #f9f9f9;
+}
+
+.primary-btn[disabled], .secondary-btn[disabled] {
+  background: #f7f7f7 !important;
+  color: #999 !important;
+  border-color: #eee !important;
+  transform: none !important;
+}
+
+/* 底部提示 */
+.tips {
+  margin-top: 48rpx;
+}
+
+.tip-item {
+  background: #fff;
+  border-radius: 12rpx;
+  padding: 24rpx;
+  margin-bottom: 24rpx;
+  box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.1);
+}
+
+.tip-title {
+  display: block;
+  font-size: 28rpx;
+  color: #333;
+  font-weight: 500;
+  margin-bottom: 16rpx;
+}
+
+.tip-text {
+  display: block;
+  font-size: 26rpx;
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 8rpx;
+}
+
+.tip-text:last-child {
+  margin-bottom: 0;
+}

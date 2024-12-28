@@ -43,6 +43,10 @@ export const getPageShareConfig = (pagePath, pageData = {}) => {
     '/pages/tool/translator/index': {
       title: '翻译大师',
       path: '/pages/tool/translator/index'
+    },
+    '/pages/tool/background-remover/index': {
+      title: '图片背景消除',
+      path: '/pages/tool/background-remover/index'
     }
   }
 

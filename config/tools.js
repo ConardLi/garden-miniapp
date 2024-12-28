@@ -59,11 +59,11 @@ export const tools = [
     category: 'life'
   },
   {
-    id: 'bg-remover',
+    id: 'background-remover',
     name: '背景消除',
     description: '智能去除图片背景',
     icon: pre + 'image.svg',
-    path: '/pages/tool/bg-remover/index',
+    path: '/pages/tool/background-remover/index',
     category: 'image'
   },  
   {
@@ -157,5 +157,6 @@ export const newTools = [
   'id-photo',
   'content-writer-xiaohongshu',
   'image-compress',
-  'text-recognition'
+  'text-recognition',
+  'background-remover'
 ];
