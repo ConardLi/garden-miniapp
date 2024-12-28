@@ -181,7 +181,7 @@ Page({
 
   onShareAppMessage() {
     return {
-      title: 'AI工具箱 - 你的智能生活助手',
+      title: '花园工具箱 - 你的智能生活助手',
       path: '/pages/home/index',
       imageUrl: '/assets/images/share-cover.png' // 分享封面图，可选
     }
@@ -189,7 +189,7 @@ Page({
 
   onShareTimeline() {
     return {
-      title: 'AI工具箱 - 你的智能生活助手',
+      title: '花园工具箱 - 你的智能生活助手',
       query: '',
       imageUrl: '/assets/images/share-cover.png' // 分享到朋友圈的封面图，可选
     }

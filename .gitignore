@@ -3,3 +3,6 @@ project.private.config.json
 .DS_Store
 node_modules
 miniprogram_npm
+
+# windsurf rules
+.windsurfrules

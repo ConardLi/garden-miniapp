@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/home/index",
+    "pages/tool/translator/index",
     "pages/tool/blind-assistant/index",
     "pages/tool/blind-assistant/environment/index",
     "pages/tool/blind-assistant/navigation/index",
@@ -19,7 +20,7 @@
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "AI工具箱",
+    "navigationBarTitleText": "花园工具箱",
     "navigationBarTextStyle": "black"
   },
   "tabBar": {

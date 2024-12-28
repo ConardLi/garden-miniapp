@@ -3,7 +3,7 @@
     "tool-card": "/components/tool-card/index",
     "tool-simple-card": "/components/tool-simple-card/index"
   },
-  "navigationBarTitleText": "AI工具箱",
+  "navigationBarTitleText": "花园工具箱",
   "navigationBarBackgroundColor": "#6184F1",
   "navigationBarTextStyle": "white"
 }
