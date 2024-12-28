@@ -1,119 +1,173 @@
 /* pages/tool/image-compress/index.wxss */
 .container {
-  padding: 20rpx;
-  background: #f8f8f8;
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+  background: #f7f8fa;
+  padding: 16rpx;
+  box-sizing: border-box;
 }
 
-.header {
-  text-align: center;
-  padding: 20rpx 0;
-}
-
-.title {
-  font-size: 36rpx;
-  font-weight: bold;
-  color: #333;
-  display: block;
-}
-
-.subtitle {
-  font-size: 24rpx;
-  color: #666;
-  margin-top: 10rpx;
-  display: block;
-}
-
-.content {
+/* 图片选择区域 */
+.image-section.empty {
   background: #fff;
-  border-radius: 20rpx;
-  padding: 30rpx;
-  box-shadow: 0 2rpx 10rpx rgba(0,0,0,0.05);
-  margin-top: 20rpx;
+  border-radius: 24rpx;
+  box-shadow: 0 2rpx 8rpx rgba(0,0,0,0.05);
+  overflow: hidden;
 }
 
-.image-container {
+.upload-box {
+  height: 480rpx;
   display: flex;
   flex-direction: column;
-  gap: 20rpx;
-  margin-bottom: 20rpx;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #f8f9fa 0%, #f2f3f5 100%);
+  position: relative;
+  padding: 32rpx;
+  box-sizing: border-box;
 }
 
-.image-box {
-  background: #f8f8f8;
-  border-radius: 10rpx;
-  padding: 20rpx;
-  text-align: center;
+.upload-box::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: 3rpx dashed #dcdee0;
+  border-radius: 24rpx;
+  margin: 12rpx;
 }
 
-.image-box image {
+.upload-emoji {
+  font-size: 88rpx;
+  margin-bottom: 32rpx;
+  line-height: 1;
+}
+
+.upload-text {
+  font-size: 32rpx;
+  color: #333;
+  margin-bottom: 16rpx;
+  font-weight: 500;
+}
+
+.upload-tip {
+  font-size: 24rpx;
+  color: #999;
+  line-height: 1.5;
+}
+
+/* 预览区域 */
+.preview-section {
+  display: flex;
+  flex-direction: column;
+  gap: 16rpx;
+}
+
+.preview-box {
+  background: #fff;
+  border-radius: 16rpx;
+  overflow: hidden;
+  box-shadow: 0 2rpx 8rpx rgba(0,0,0,0.05);
+}
+
+.preview-box image {
   width: 100%;
-  height: 400rpx;
-  border-radius: 8rpx;
+  height: 360rpx;
+  display: block;
+  background: #f8f9fa;
 }
 
-.size-text {
+.image-info {
+  padding: 16rpx 20rpx;
+  background: #fff;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12rpx;
+}
+
+.image-info text {
   font-size: 24rpx;
   color: #666;
-  margin-top: 10rpx;
-  display: block;
+  margin-right: 24rpx;
 }
 
-.options-container {
-  margin: 20rpx 0;
+/* 控制区域 */
+.control-section {
+  background: #fff;
+  border-radius: 16rpx;
+  padding: 20rpx;
+  margin: 16rpx 0;
+  box-shadow: 0 2rpx 8rpx rgba(0,0,0,0.05);
 }
 
 .option-item {
-  margin-bottom: 20rpx;
-  padding: 20rpx;
-  background: #f8f8f8;
-  border-radius: 10rpx;
+  margin-bottom: 24rpx;
 }
 
-.option-item text {
+.option-item:last-child {
+  margin-bottom: 0;
+}
+
+.section-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8rpx;
+}
+
+.section-title text {
   font-size: 28rpx;
   color: #333;
+  font-weight: 500;
+}
+
+.section-title .value {
+  color: #07c160;
+}
+
+.option-tip {
+  font-size: 24rpx;
+  color: #999;
+  margin-bottom: 16rpx;
   display: block;
 }
 
-.quality-hint, .scale-hint {
-  font-size: 24rpx !important;
-  color: #666 !important;
-  margin: 10rpx 0;
-}
-
-.button-container {
+/* 按钮样式 */
+.action-section {
   display: flex;
-  flex-direction: column;
-  gap: 20rpx;
-  margin: 20rpx 0;
+  flex-wrap: wrap;
+  gap: 16rpx;
+  margin-top: 32rpx;
 }
 
-.btn {
-  margin: 0;
-  background: #f8f8f8;
+.action-section button {
+  flex: 1;
+  min-width: 45%;
+  margin: 0 !important;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  padding: 0;
+}
+
+.primary-btn {
+  background: linear-gradient(to right, #07c160, #0baf56);
+  color: #fff;
+  border: none;
+  height: 88rpx;
+  border-radius: 44rpx;
+  font-size: 32rpx;
+  font-weight: 500;
+  transition: opacity 0.3s;
+}
+
+.secondary-btn {
+  background: #f7f8fa;
   color: #333;
   border: none;
-  font-size: 28rpx;
-  padding: 20rpx 0;
-  border-radius: 10rpx;
-}
-
-.btn.primary {
-  background: #07c160;
-  color: #fff;
-}
-
-.btn:active {
-  opacity: 0.8;
-}
-
-.empty-state {
-  text-align: center;
-  padding: 40rpx;
-  color: #666;
-  font-size: 28rpx;
-  margin-top: 20rpx;
+  height: 88rpx;
+  border-radius: 44rpx;
+  font-size: 32rpx;
 }

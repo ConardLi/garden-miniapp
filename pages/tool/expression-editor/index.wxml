@@ -1,68 +1,141 @@
 <view class="container">
-  <!-- 选择图片区域 -->
-  <view class="image-section" bindtap="chooseImage" wx:if="{{!imageUrl}}">
-    <view class="upload-box">
-      <view class="upload-icon"></view>
-      <text class="upload-text">点击选择图片</text>
+  <!-- 主要内容区域 -->
+  <view class="content">
+    <!-- 图片选择/预览区域 -->
+    <view class="image-section {{!imagePath ? 'empty' : ''}}">
+      <block wx:if="{{!imagePath}}">
+        <view class="upload-box" bindtap="chooseImage">
+          <text class="upload-emoji">📸</text>
+          <text class="upload-text">点击上传图片</text>
+          <text class="upload-tip">支持jpg、png格式</text>
+          <text class="upload-tip">文件大小不超过10MB</text>
+        </view>
+      </block>
+      
+      <block wx:else>
+        <view class="preview-section">
+          <view class="preview-box original">
+            <image 
+              class="preview-image" 
+              src="{{imagePath}}" 
+              mode="aspectFit"
+              data-type="original"
+              bindtap="previewImage"
+            />
+            <text class="preview-label">原图</text>
+          </view>
+          
+          <view class="preview-box result" wx:if="{{showResult}}">
+            <image 
+              class="preview-image" 
+              src="{{editedImageUrl}}" 
+              mode="aspectFit"
+              data-type="edited"
+              bindtap="previewImage"
+            />
+            <text class="preview-label">效果图</text>
+          </view>
+        </view>
+      </block>
+    </view>
+
+    <!-- 表情选择区域 -->
+    <view class="control-section" wx:if="{{imagePath}}">
+      <view class="section-title">选择表情</view>
+      <view class="expression-grid">
+        <view 
+          wx:for="{{expressions}}" 
+          wx:key="id"
+          class="expression-item {{selectedExpression.id === item.id ? 'selected' : ''}}"
+          data-id="{{item.id}}"
+          bindtap="selectExpression"
+        >
+          <text class="emoji">{{item.emoji}}</text>
+          <text class="expr-name">{{item.name}}</text>
+        </view>
+        <view 
+          class="expression-item {{isCustom ? 'selected' : ''}}"
+          bindtap="toggleCustom"
+        >
+          <text class="emoji">✏️</text>
+          <text class="expr-name">自定义</text>
+        </view>
+      </view>
+
+      <!-- 自定义提示词输入 -->
+      <view class="custom-input" wx:if="{{isCustom}}">
+        <textarea
+          class="prompt-input"
+          placeholder="请输入自定义提示词"
+          value="{{customPrompt}}"
+          bindinput="updateCustomPrompt"
+          maxlength="100"
+        ></textarea>
+        <view class="input-counter">{{customPrompt.length}}/100</view>
+      </view>
+
+      <!-- 编辑强度调节 -->
+      <view class="scale-section">
+        <view class="section-title">
+          <text>编辑强度</text>
+          <view class="scale-labels">
+            <text>弱</text>
+            <text>强</text>
+          </view>
+        </view>
+        <slider 
+          value="{{scale * 100}}" 
+          min="1" 
+          max="100" 
+          block-size="24"
+          activeColor="#07c160"
+          backgroundColor="#eee"
+          bindchanging="adjustScale"
+          bindchange="adjustScale"
+        />
+      </view>
+
+      <!-- 操作按钮 -->
+      <view class="action-section">
+        <button 
+          class="primary-btn {{(!imagePath || !selectedExpression || loading) ? 'disabled' : ''}}"
+          disabled="{{!imagePath || !selectedExpression || loading}}"
+          loading="{{loading}}"
+          bindtap="startEdit"
+        >
+          {{loading ? '生成中...' : '开始生成'}}
+        </button>
+        
+        <button 
+          class="secondary-btn"
+          bindtap="chooseImage"
+        >
+          重新选择
+        </button>
+        
+        <block wx:if="{{showResult}}">
+          <button 
+            class="secondary-btn"
+            bindtap="saveImage"
+          >
+            保存到相册
+          </button>
+          
+          <button 
+            class="secondary-btn"
+            bindtap="reset"
+          >
+            重新编辑
+          </button>
+        </block>
+      </view>
     </view>
   </view>
 
-  <!-- 图片处理区域 -->
-  <view class="image-process" wx:if="{{imageUrl}}">
-    <!-- 原图 -->
-    <view class="image-box">
-      <text class="image-title">原图</text>
-      <image 
-        class="preview-image" 
-        src="{{imageUrl}}" 
-        mode="aspectFit"
-        data-src="{{imageUrl}}"
-        bindtap="previewImage"
-      />
-      <text class="image-info">{{imageInfo.width}} x {{imageInfo.height}}</text>
-    </view>
-
-    <!-- 处理后的图片 -->
-    <view class="image-box" wx:if="{{processedImageUrl}}">
-      <text class="image-title">处理结果</text>
-      <image 
-        class="preview-image" 
-        src="{{processedImageUrl}}" 
-        mode="aspectFit"
-        data-src="{{processedImageUrl}}"
-        bindtap="previewImage"
-      />
-      <text class="image-info">{{processedImageInfo.width}} x {{processedImageInfo.height}}</text>
-    </view>
-  </view>
-
-  <!-- 操作按钮 -->
-  <view class="button-group">
-    <button 
-      class="action-button"
-      type="primary" 
-      disabled="{{!imageUrl || isProcessing}}"
-      loading="{{isProcessing}}"
-      bindtap="processImage"
-    >
-      {{isProcessing ? '处理中...' : '开始处理'}}
-    </button>
-
-    <button 
-      class="action-button"
-      type="default" 
-      disabled="{{!processedImageUrl}}"
-      bindtap="saveImage"
-    >
-      保存到相册
-    </button>
-
-    <button 
-      class="action-button"
-      type="default" 
-      bindtap="chooseImage"
-    >
-      重新选择
-    </button>
+  <!-- 错误提示 -->
+  <view class="error-box" wx:if="{{editFailed}}">
+    <image class="error-icon" src="/assets/icons/error.png"></image>
+    <text class="error-text">{{errorMessage}}</text>
+    <text class="error-tip">请稍后重试</text>
   </view>
 </view>
