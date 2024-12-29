@@ -368,6 +368,10 @@
   overflow: hidden;
 }
 
+.cropper-wrapper.hidden {
+  visibility: hidden;
+}
+
 .footer {
   position: fixed;
   bottom: env(safe-area-inset-bottom);

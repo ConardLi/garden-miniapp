@@ -120,7 +120,7 @@
   <!-- 步骤3：裁剪 -->
   <view class="step-3" wx:if="{{step === 3}}">
     <!-- 裁剪区域 -->
-    <view class="cropper-wrapper">
+    <view class="cropper-wrapper {{showSizePopup || showColorPopup ? 'hidden' : ''}}">
       <template is="we-cropper" data="{{...cropperOpt}}"/>
     </view>
 
