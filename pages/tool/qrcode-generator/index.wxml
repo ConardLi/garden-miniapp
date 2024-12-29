@@ -16,10 +16,11 @@
       </button>
       <button 
         class="generate-btn" 
-        type="primary" 
         bindtap="generateQRCode"
         loading="{{loading}}"
-      >生成二维码</button>
+      >
+        {{loading ? '生成中...' : '生成二维码'}}
+      </button>
     </view>
   </view>
 
@@ -32,8 +33,9 @@
     ></image>
     <button 
       class="save-btn" 
-      type="primary" 
       bindtap="saveQRCode"
-    >保存到相册</button>
+    >
+      保存到相册
+    </button>
   </view>
 </view>
