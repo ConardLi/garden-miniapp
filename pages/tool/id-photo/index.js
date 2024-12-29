@@ -18,14 +18,107 @@ Page({
       { id: 2, name: '蓝色', value: '#438EDB' },
       { id: 3, name: '红色', value: '#B60C24' }
     ],
-    sizeList: [
-      { id: 1, name: '一寸', width: 295, height: 413 }, // 25mm x 35mm
-      { id: 2, name: '二寸', width: 413, height: 579 }, // 35mm x 49mm
-      { id: 3, name: '小一寸', width: 260, height: 378 }, // 22mm x 32mm
-      { id: 4, name: '大一寸', width: 390, height: 567 }, // 33mm x 48mm
-      { id: 5, name: '小二寸', width: 413, height: 531 }, // 35mm x 45mm
-      { id: 6, name: '大二寸', width: 413, height: 626 }  // 35mm x 53mm
-    ],
+    sizeList: {
+      common: [
+        { id: 1, name: '一寸', width: 295, height: 413, mmWidth: 25, mmHeight: 35 },
+        { id: 2, name: '二寸', width: 413, height: 579, mmWidth: 35, mmHeight: 49 },
+        { id: 3, name: '简历照(二寸)', width: 413, height: 579, mmWidth: 35, mmHeight: 49 },
+        { id: 4, name: '简历照(一寸)', width: 295, height: 413, mmWidth: 25, mmHeight: 35 },
+        { id: 5, name: '大一寸', width: 390, height: 567, mmWidth: 33, mmHeight: 48 },
+        { id: 6, name: '小一寸', width: 260, height: 378, mmWidth: 22, mmHeight: 32 },
+        { id: 7, name: '小二寸', width: 413, height: 531, mmWidth: 35, mmHeight: 45 },
+        { id: 8, name: '大二寸', width: 413, height: 626, mmWidth: 35, mmHeight: 53 },
+        { id: 9, name: '社保卡', width: 307, height: 378, mmWidth: 26, mmHeight: 32 },
+        { id: 10, name: '居住证', width: 307, height: 378, mmWidth: 26, mmHeight: 32 },
+        { id: 11, name: '身份证', width: 307, height: 378, mmWidth: 26, mmHeight: 32 }
+      ],
+      official: [
+        { id: 101, name: '北京公务员', width: 401, height: 602, mmWidth: 34, mmHeight: 51 },
+        { id: 102, name: '广东公务员', width: 413, height: 531, mmWidth: 35, mmHeight: 45 },
+        { id: 103, name: '重庆公务员', width: 413, height: 531, mmWidth: 35, mmHeight: 45 },
+        { id: 104, name: '湖南公务员', width: 295, height: 413, mmWidth: 25, mmHeight: 35 },
+        { id: 105, name: '湖北公务员', width: 295, height: 413, mmWidth: 25, mmHeight: 35 },
+        { id: 106, name: '江苏公务员', width: 401, height: 531, mmWidth: 34, mmHeight: 45 },
+        { id: 107, name: '甘肃公务员', width: 295, height: 413, mmWidth: 25, mmHeight: 35 },
+        { id: 108, name: '陕西公务员', width: 413, height: 531, mmWidth: 35, mmHeight: 45 },
+        { id: 109, name: '海南公务员', width: 413, height: 531, mmWidth: 35, mmHeight: 45 },
+        { id: 110, name: '广西公务员', width: 295, height: 413, mmWidth: 25, mmHeight: 35 },
+        { id: 111, name: '山东公务员', width: 413, height: 531, mmWidth: 35, mmHeight: 45 },
+        { id: 112, name: '安徽公务员', width: 401, height: 531, mmWidth: 34, mmHeight: 45 },
+        { id: 113, name: '江西公务员', width: 295, height: 413, mmWidth: 25, mmHeight: 35 },
+        { id: 114, name: '天津公务员', width: 413, height: 531, mmWidth: 35, mmHeight: 45 },
+        { id: 115, name: '内蒙古公务员', width: 413, height: 531, mmWidth: 35, mmHeight: 45 },
+        { id: 116, name: '辽宁公务员', width: 413, height: 531, mmWidth: 35, mmHeight: 45 },
+        { id: 117, name: '福建公务员', width: 413, height: 531, mmWidth: 35, mmHeight: 45 },
+        { id: 118, name: '河南公务员', width: 295, height: 413, mmWidth: 25, mmHeight: 35 },
+        { id: 119, name: '吉林公务员', width: 413, height: 531, mmWidth: 35, mmHeight: 45 },
+        { id: 120, name: '黑龙江公务员', width: 295, height: 413, mmWidth: 25, mmHeight: 35 },
+        { id: 121, name: '宁夏公务员', width: 413, height: 531, mmWidth: 35, mmHeight: 45 },
+        { id: 122, name: '贵州公务员', width: 295, height: 413, mmWidth: 25, mmHeight: 35 },
+        { id: 123, name: '云南公务员', width: 413, height: 531, mmWidth: 35, mmHeight: 45 },
+        { id: 124, name: '四川公务员', width: 295, height: 413, mmWidth: 25, mmHeight: 35 },
+        { id: 125, name: '新疆公务员', width: 413, height: 531, mmWidth: 35, mmHeight: 45 },
+        { id: 126, name: '西藏公务员', width: 295, height: 413, mmWidth: 25, mmHeight: 35 }
+      ],
+      visa: [
+        { id: 201, name: '新加坡签证', width: 413, height: 531, mmWidth: 35, mmHeight: 45 },
+        { id: 202, name: '美国签证', width: 602, height: 602, mmWidth: 51, mmHeight: 51 },
+        { id: 203, name: '韩国签证', width: 413, height: 531, mmWidth: 35, mmHeight: 45 },
+        { id: 204, name: '马来西亚签证', width: 413, height: 531, mmWidth: 35, mmHeight: 45 },
+        { id: 205, name: '泰国签证', width: 413, height: 531, mmWidth: 35, mmHeight: 45 },
+        { id: 206, name: '加拿大签证', width: 413, height: 531, mmWidth: 35, mmHeight: 45 },
+        { id: 207, name: '澳大利亚签证', width: 413, height: 531, mmWidth: 35, mmHeight: 45 },
+        { id: 208, name: '新西兰签证', width: 413, height: 531, mmWidth: 35, mmHeight: 45 },
+        { id: 209, name: '芬兰签证', width: 413, height: 531, mmWidth: 35, mmHeight: 45 },
+        { id: 210, name: '冰岛签证', width: 413, height: 531, mmWidth: 35, mmHeight: 45 },
+        { id: 211, name: '比利时签证', width: 413, height: 531, mmWidth: 35, mmHeight: 45 },
+        { id: 212, name: '捷克签证', width: 413, height: 531, mmWidth: 35, mmHeight: 45 },
+        { id: 213, name: '奥地利签证', width: 413, height: 531, mmWidth: 35, mmHeight: 45 },
+        { id: 214, name: '法国签证', width: 413, height: 531, mmWidth: 35, mmHeight: 45 },
+        { id: 215, name: '土库曼斯坦', width: 413, height: 531, mmWidth: 35, mmHeight: 45 },
+        { id: 216, name: '叙利亚签证', width: 413, height: 531, mmWidth: 35, mmHeight: 45 },
+        { id: 217, name: '阿富汗签证', width: 413, height: 531, mmWidth: 35, mmHeight: 45 },
+        { id: 218, name: '吉尔吉斯斯坦签', width: 295, height: 413, mmWidth: 25, mmHeight: 35 },
+        { id: 219, name: '巴基斯坦签证', width: 413, height: 531, mmWidth: 35, mmHeight: 45 },
+        { id: 220, name: '蒙古签证', width: 390, height: 567, mmWidth: 33, mmHeight: 48 },
+        { id: 221, name: '哈萨克斯坦签证', width: 413, height: 531, mmWidth: 35, mmHeight: 45 },
+        { id: 222, name: '孟加拉签证', width: 413, height: 531, mmWidth: 35, mmHeight: 45 },
+        { id: 223, name: '肯尼亚签证', width: 413, height: 531, mmWidth: 35, mmHeight: 45 },
+        { id: 224, name: '伊朗签证', width: 413, height: 531, mmWidth: 35, mmHeight: 45 },
+        { id: 225, name: '迪拜签证', width: 413, height: 531, mmWidth: 35, mmHeight: 45 },
+        { id: 226, name: '文莱签证', width: 413, height: 531, mmWidth: 35, mmHeight: 45 },
+        { id: 227, name: '尼泊尔签证', width: 413, height: 531, mmWidth: 35, mmHeight: 45 },
+        { id: 228, name: '老挝签证', width: 413, height: 531, mmWidth: 35, mmHeight: 45 },
+        { id: 229, name: '柬埔寨签证', width: 413, height: 531, mmWidth: 35, mmHeight: 45 },
+        { id: 230, name: '缅甸签证', width: 413, height: 531, mmWidth: 35, mmHeight: 45 },
+        { id: 231, name: '菲律宾签证', width: 413, height: 531, mmWidth: 35, mmHeight: 45 },
+        { id: 232, name: '俄罗斯签证', width: 413, height: 531, mmWidth: 35, mmHeight: 45 },
+        { id: 233, name: '印度签证', width: 590, height: 590, mmWidth: 50, mmHeight: 50 }
+      ],
+      other: [
+        { id: 301, name: '司法考试报名', width: 413, height: 626, mmWidth: 35, mmHeight: 53 },
+        { id: 302, name: '深圳行政执法证', width: 472, height: 626, mmWidth: 40, mmHeight: 53 },
+        { id: 303, name: '广东行政执法证', width: 472, height: 626, mmWidth: 40, mmHeight: 53 },
+        { id: 304, name: '保险从业资格证', width: 213, height: 368, mmWidth: 18, mmHeight: 31 },
+        { id: 305, name: '证券从业资格证', width: 295, height: 413, mmWidth: 25, mmHeight: 35 },
+        { id: 306, name: '护士资格考试', width: 295, height: 413, mmWidth: 25, mmHeight: 35 },
+        { id: 307, name: '公务员考试', width: 413, height: 531, mmWidth: 35, mmHeight: 45 },
+        { id: 308, name: '注册会计师报名', width: 356, height: 438, mmWidth: 30, mmHeight: 37 },
+        { id: 309, name: '二级建造师', width: 295, height: 413, mmWidth: 25, mmHeight: 35 },
+        { id: 310, name: '会计职称考试', width: 295, height: 413, mmWidth: 25, mmHeight: 35 },
+        { id: 311, name: '计算机等级考试', width: 390, height: 567, mmWidth: 33, mmHeight: 48 },
+        { id: 312, name: '一级建造师', width: 295, height: 413, mmWidth: 25, mmHeight: 35 },
+        { id: 313, name: '普通话水平测试', width: 390, height: 567, mmWidth: 33, mmHeight: 48 },
+        { id: 314, name: '导游证', width: 295, height: 413, mmWidth: 25, mmHeight: 35 },
+        { id: 315, name: '教师资格证', width: 356, height: 472, mmWidth: 30, mmHeight: 40 },
+        { id: 316, name: '英语四六级考试', width: 390, height: 567, mmWidth: 33, mmHeight: 48 },
+        { id: 317, name: '研究生考试', width: 426, height: 567, mmWidth: 36, mmHeight: 48 },
+        { id: 318, name: '国考报名', width: 413, height: 531, mmWidth: 35, mmHeight: 45 },
+        { id: 319, name: '驾驶证', width: 260, height: 378, mmWidth: 22, mmHeight: 32 },
+        { id: 320, name: '健康证', width: 295, height: 413, mmWidth: 25, mmHeight: 35 },
+        { id: 321, name: '社保卡', width: 307, height: 378, mmWidth: 26, mmHeight: 32 }
+      ]
+    },
     selectedSize: null,
     selectedColor: null,
     cropperOpt: {
@@ -67,7 +160,7 @@ Page({
 
     // 默认选中一寸和白色背景
     this.setData({
-      selectedSize: this.data.sizeList[0],
+      selectedSize: this.data.sizeList.common[0],
       selectedColor: this.data.colorList[0]
     })
   },

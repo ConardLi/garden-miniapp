@@ -20,41 +20,94 @@
   </view>
 
   <!-- 步骤1：选择图片和样式 -->
-  <view class="step-1" wx:if="{{step === 1}}">
-    <!-- 尺寸选择 -->
-    <scroll-view scroll-x class="size-list">
-      <view 
-        wx:for="{{sizeList}}" 
-        wx:key="id"
-        class="size-item {{selectedSize.id === item.id ? 'active' : ''}}"
-        data-size="{{item}}"
-        bindtap="selectSize"
-      >
-        <view class="size-name">{{item.name}}</view>
-        <view class="size-dimensions">{{item.width}}x{{item.height}}</view>
-      </view>
-    </scroll-view>
+  <scroll-view class="step-1" scroll-y wx:if="{{step === 1}}">
+    <!-- 上传区域 -->
+    <view class="upload-area" bindtap="uploadTap">
+      <view class="upload-icon">📷</view>
+      <view class="upload-text">上传/拍照</view>
+      <view class="upload-tips">建议使用白底照片，光线充足，正面面对镜头</view>
+    </view>
 
     <!-- 颜色选择 -->
-    <scroll-view scroll-x class="color-list">
-      <view 
-        wx:for="{{colorList}}" 
-        wx:key="id"
-        class="color-item {{selectedColor.id === item.id ? 'active' : ''}}"
-        data-color="{{item}}"
-        bindtap="selectColor"
-      >
-        <view class="color-preview" style="background-color: {{item.value}}"></view>
-        <view class="color-name">{{item.name}}</view>
+    <view class="style-section">
+      <view class="section-title">背景颜色</view>
+      <view class="color-list">
+        <view 
+          wx:for="{{colorList}}" 
+          wx:key="id"
+          class="color-item {{selectedColor.id === item.id ? 'active' : ''}}"
+          data-color="{{item}}"
+          bindtap="selectColor"
+        >
+          <view class="color-preview" style="background-color: {{item.value}}"></view>
+          <view class="color-name">{{item.name}}</view>
+        </view>
       </view>
-    </scroll-view>
-
-    <!-- 选择图片按钮 -->
-    <view class="upload-btn" bindtap="uploadTap">
-      <view class="upload-icon">📷</view>
-      <text>上传照片</text>
     </view>
-  </view>
+
+    <!-- 尺寸选择 -->
+    <view class="style-section">
+      <!-- 常用尺寸 -->
+      <view class="section-title">常用尺寸</view>
+      <view class="size-grid">
+        <view 
+          wx:for="{{sizeList.common}}" 
+          wx:key="id"
+          class="size-item {{selectedSize.id === item.id ? 'active' : ''}}"
+          data-size="{{item}}"
+          bindtap="selectSize"
+        >
+          <view class="size-name">{{item.name}}</view>
+          <view class="size-dimensions">{{item.mmWidth}}x{{item.mmHeight}}mm</view>
+        </view>
+      </view>
+
+      <!-- 公务员尺寸 -->
+      <view class="section-title">公务员</view>
+      <view class="size-grid">
+        <view 
+          wx:for="{{sizeList.official}}" 
+          wx:key="id"
+          class="size-item {{selectedSize.id === item.id ? 'active' : ''}}"
+          data-size="{{item}}"
+          bindtap="selectSize"
+        >
+          <view class="size-name">{{item.name}}</view>
+          <view class="size-dimensions">{{item.mmWidth}}x{{item.mmHeight}}mm</view>
+        </view>
+      </view>
+
+      <!-- 签证尺寸 -->
+      <view class="section-title">签证</view>
+      <view class="size-grid">
+        <view 
+          wx:for="{{sizeList.visa}}" 
+          wx:key="id"
+          class="size-item {{selectedSize.id === item.id ? 'active' : ''}}"
+          data-size="{{item}}"
+          bindtap="selectSize"
+        >
+          <view class="size-name">{{item.name}}</view>
+          <view class="size-dimensions">{{item.mmWidth}}x{{item.mmHeight}}mm</view>
+        </view>
+      </view>
+
+      <!-- 其他尺寸 -->
+      <view class="section-title">其他</view>
+      <view class="size-grid">
+        <view 
+          wx:for="{{sizeList.other}}" 
+          wx:key="id"
+          class="size-item {{selectedSize.id === item.id ? 'active' : ''}}"
+          data-size="{{item}}"
+          bindtap="selectSize"
+        >
+          <view class="size-name">{{item.name}}</view>
+          <view class="size-dimensions">{{item.mmWidth}}x{{item.mmHeight}}mm</view>
+        </view>
+      </view>
+    </view>
+  </scroll-view>
 
   <!-- 步骤2：处理背景 -->
   <view class="step-2" wx:if="{{step === 2}}">
@@ -100,26 +153,83 @@
   ></canvas>
 
   <!-- 弹出层放在最外层以确保在最上层显示 -->
-  <!-- 尺寸选择弹出层 -->
-  <view class="popup-mask" wx:if="{{showSizePopup}}" bindtap="hideSizePopup"></view>
-  <view class="popup-content {{showSizePopup ? 'popup-show' : ''}}" wx:if="{{showSizePopup}}">
-    <view class="popup-header">
-      <text>选择尺寸</text>
-      <view class="popup-close" bindtap="hideSizePopup">✖️</view>
-    </view>
-    <view class="popup-body">
-      <view 
-        wx:for="{{sizeList}}" 
-        wx:key="id"
-        class="size-item {{selectedSize.id === item.id ? 'active' : ''}}"
-        data-size="{{item}}"
-        bindtap="selectSize"
-      >
-        <view class="size-name">{{item.name}}</view>
-        <view class="size-dimensions">{{item.width}}x{{item.height}}</view>
+    <!-- 尺寸选择弹出层 -->
+    <view class="popup-mask" wx:if="{{showSizePopup}}" bindtap="hideSizePopup"></view>
+    <view class="popup-content {{showSizePopup ? 'popup-show' : ''}}" wx:if="{{showSizePopup}}">
+      <view class="popup-header">
+        <text>选择尺寸</text>
+        <view class="popup-close" bindtap="hideSizePopup">✖️</view>
+      </view>
+      <view class="popup-body">
+        <!-- 常用尺寸 -->
+        <view class="size-category">
+          <view class="category-title">常用</view>
+          <view class="size-grid">
+            <view 
+              wx:for="{{sizeList.common}}" 
+              wx:key="id"
+              class="size-item {{selectedSize.id === item.id ? 'active' : ''}}"
+              data-size="{{item}}"
+              bindtap="selectSize"
+            >
+              <view class="size-name">{{item.name}}</view>
+              <view class="size-dimensions">{{item.mmWidth}}x{{item.mmHeight}}mm</view>
+            </view>
+          </view>
+        </view>
+        
+        <!-- 公务员尺寸 -->
+        <view class="size-category">
+          <view class="category-title">公务员</view>
+          <view class="size-grid">
+            <view 
+              wx:for="{{sizeList.official}}" 
+              wx:key="id"
+              class="size-item {{selectedSize.id === item.id ? 'active' : ''}}"
+              data-size="{{item}}"
+              bindtap="selectSize"
+            >
+              <view class="size-name">{{item.name}}</view>
+              <view class="size-dimensions">{{item.mmWidth}}x{{item.mmHeight}}mm</view>
+            </view>
+          </view>
+        </view>
+
+        <!-- 签证尺寸 -->
+        <view class="size-category">
+          <view class="category-title">签证</view>
+          <view class="size-grid">
+            <view 
+              wx:for="{{sizeList.visa}}" 
+              wx:key="id"
+              class="size-item {{selectedSize.id === item.id ? 'active' : ''}}"
+              data-size="{{item}}"
+              bindtap="selectSize"
+            >
+              <view class="size-name">{{item.name}}</view>
+              <view class="size-dimensions">{{item.mmWidth}}x{{item.mmHeight}}mm</view>
+            </view>
+          </view>
+        </view>
+
+        <!-- 其他尺寸 -->
+        <view class="size-category">
+          <view class="category-title">其他</view>
+          <view class="size-grid">
+            <view 
+              wx:for="{{sizeList.other}}" 
+              wx:key="id"
+              class="size-item {{selectedSize.id === item.id ? 'active' : ''}}"
+              data-size="{{item}}"
+              bindtap="selectSize"
+            >
+              <view class="size-name">{{item.name}}</view>
+              <view class="size-dimensions">{{item.mmWidth}}x{{item.mmHeight}}mm</view>
+            </view>
+          </view>
+        </view>
       </view>
     </view>
-  </view>
 
   <!-- 背景色选择弹出层 -->
   <view class="popup-mask" wx:if="{{showColorPopup}}" bindtap="hideColorPopup"></view>
