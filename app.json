@@ -16,7 +16,8 @@
     "pages/tool/detail",
     "pages/tool/image-recognition/index",
     "pages/tool/expression-editor/index",
-    "pages/tool/background-remover/index"
+    "pages/tool/background-remover/index",
+    "pages/tool/image-crop/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

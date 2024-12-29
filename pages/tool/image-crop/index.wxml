@@ -1,0 +1,91 @@
+<view class="container">
+  <view class="content">
+    <!-- 图片选择/预览区域 -->
+    <view class="image-section {{!imagePath ? 'empty' : ''}}">
+      <block wx:if="{{!imagePath}}">
+        <view class="upload-box" bindtap="chooseImage">
+          <text class="upload-emoji">✂️</text>
+          <text class="upload-text">点击上传图片</text>
+          <text class="upload-tip">支持jpg、png格式</text>
+          <text class="upload-tip">文件大小不超过10MB</text>
+        </view>
+      </block>
+      
+      <block wx:else>
+        <!-- 裁剪比例选择 -->
+        <view class="scale-section">
+          <text class="section-title">选择裁剪比例</text>
+          <view class="scale-grid">
+            <view 
+              wx:for="{{cropScales}}" 
+              wx:key="id"
+              class="scale-item {{selectedScale.id === item.id ? 'selected' : ''}}"
+              data-id="{{item.id}}"
+              bindtap="selectScale"
+            >
+              <text class="scale-icon">{{item.icon}}</text>
+              <text class="scale-name">{{item.name}}</text>
+              <text class="scale-desc" wx:if="{{item.desc}}">{{item.desc}}</text>
+            </view>
+          </view>
+        </view>
+
+        <view class="preview-section">
+          <!-- 原图预览 -->
+          <view class="preview-box original">
+            <image 
+              class="preview-image" 
+              src="{{imagePath}}" 
+              mode="aspectFit"
+              data-src="{{imagePath}}"
+              bindtap="previewImage"
+            />
+            <view class="preview-info">
+              <text class="preview-label">原图</text>
+              <view class="image-info" wx:if="{{originalInfo}}">
+                <text class="info-item">{{originalInfo.width}} × {{originalInfo.height}}</text>
+                <text class="info-item">{{originalInfo.size}}</text>
+                <text class="info-item">{{originalInfo.type || 'unknown'}}</text>
+              </view>
+            </view>
+          </view>
+          
+          <!-- 裁剪后预览 -->
+          <view class="preview-box result" wx:if="{{croppedImagePath}}">
+            <image 
+              class="preview-image" 
+              src="{{croppedImagePath}}" 
+              mode="aspectFit"
+              data-src="{{croppedImagePath}}"
+              bindtap="previewImage"
+            />
+            <view class="preview-info">
+              <text class="preview-label">裁剪后</text>
+              <view class="image-info" wx:if="{{croppedInfo}}">
+                <text class="info-item">{{croppedInfo.width}} × {{croppedInfo.height}}</text>
+              </view>
+            </view>
+          </view>
+        </view>
+
+        <!-- 操作按钮 -->
+        <view class="action-section">
+          <button 
+            class="primary-btn"
+            bindtap="reset"
+          >
+            重新裁剪
+          </button>
+          
+          <button 
+            class="secondary-btn"
+            bindtap="saveImage"
+            disabled="{{!croppedImagePath}}"
+          >
+            保存到相册
+          </button>
+        </view>
+      </block>
+    </view>
+  </view>
+</view>

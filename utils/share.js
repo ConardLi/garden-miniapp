@@ -47,6 +47,10 @@ export const getPageShareConfig = (pagePath, pageData = {}) => {
     '/pages/tool/background-remover/index': {
       title: '图片背景消除',
       path: '/pages/tool/background-remover/index'
+    },
+    '/pages/tool/image-crop/index': {
+      title: '图片裁剪',
+      path: '/pages/tool/image-crop/index'
     }
   }
 

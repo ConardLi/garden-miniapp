@@ -137,6 +137,14 @@ export const tools = [
     icon: pre + 'expression.svg',
     path: '/pages/tool/expression-editor/index',
     category: 'image'
+  },
+  {
+    id: 'image-crop',
+    name: '图片裁剪',
+    description: '快速裁剪图片，支持自定义比例',
+    icon:  pre + 'image-size.svg',
+    path: '/pages/tool/image-crop/index',
+    category: 'image'
   }
 ];
 
@@ -158,5 +166,6 @@ export const newTools = [
   'content-writer-xiaohongshu',
   'image-compress',
   'text-recognition',
-  'background-remover'
+  'background-remover',
+  'image-crop',
 ];
