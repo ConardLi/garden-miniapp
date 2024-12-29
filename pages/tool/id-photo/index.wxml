@@ -1,0 +1,144 @@
+<import src="../../../components/we-cropper/we-cropper.wxml"/>
+
+<view class="container">
+  <!-- 步骤指示器 -->
+  <view class="step-indicator">
+    <view class="step {{step >= 1 ? 'active' : ''}}">
+      <view class="step-number">1</view>
+      <view class="step-text">选择照片</view>
+    </view>
+    <view class="step-line"></view>
+    <view class="step {{step >= 2 ? 'active' : ''}}">
+      <view class="step-number">2</view>
+      <view class="step-text">智能抠图</view>
+    </view>
+    <view class="step-line"></view>
+    <view class="step {{step >= 3 ? 'active' : ''}}">
+      <view class="step-number">3</view>
+      <view class="step-text">调整照片</view>
+    </view>
+  </view>
+
+  <!-- 步骤1：选择图片和样式 -->
+  <view class="step-1" wx:if="{{step === 1}}">
+    <!-- 尺寸选择 -->
+    <scroll-view scroll-x class="size-list">
+      <view 
+        wx:for="{{sizeList}}" 
+        wx:key="id"
+        class="size-item {{selectedSize.id === item.id ? 'active' : ''}}"
+        data-size="{{item}}"
+        bindtap="selectSize"
+      >
+        <view class="size-name">{{item.name}}</view>
+        <view class="size-dimensions">{{item.width}}x{{item.height}}</view>
+      </view>
+    </scroll-view>
+
+    <!-- 颜色选择 -->
+    <scroll-view scroll-x class="color-list">
+      <view 
+        wx:for="{{colorList}}" 
+        wx:key="id"
+        class="color-item {{selectedColor.id === item.id ? 'active' : ''}}"
+        data-color="{{item}}"
+        bindtap="selectColor"
+      >
+        <view class="color-preview" style="background-color: {{item.value}}"></view>
+        <view class="color-name">{{item.name}}</view>
+      </view>
+    </scroll-view>
+
+    <!-- 选择图片按钮 -->
+    <view class="upload-btn" bindtap="uploadTap">
+      <view class="upload-icon">📷</view>
+      <text>上传照片</text>
+    </view>
+  </view>
+
+  <!-- 步骤2：处理背景 -->
+  <view class="step-2" wx:if="{{step === 2}}">
+    <view class="processing">
+      <view class="loading"></view>
+      <text>正在智能抠图...</text>
+    </view>
+  </view>
+
+  <!-- 步骤3：裁剪 -->
+  <view class="step-3" wx:if="{{step === 3}}">
+    <!-- 裁剪区域 -->
+    <view class="cropper-wrapper">
+      <template is="we-cropper" data="{{...cropperOpt}}"/>
+    </view>
+
+    <!-- 底部操作区 -->
+    <view class="footer">
+      <view class="footer-btn" bindtap="showSizePopup">
+        <view class="btn-icon">📏</view>
+        <text>更换尺寸</text>
+      </view>
+      <view class="footer-btn" bindtap="showColorPopup">
+        <view class="btn-icon">🎨</view>
+        <text>更换背景</text>
+      </view>
+      <view class="footer-btn" bindtap="uploadTap">
+        <view class="btn-icon">📷</view>
+        <text>更换图片</text>
+      </view>
+      <view class="footer-btn" bindtap="saveResult">
+        <view class="btn-icon">💾</view>
+        <text>保存图片</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 结果画布 -->
+  <canvas 
+    type="2d"
+    id="resultCanvas" 
+    class="result-canvas"
+  ></canvas>
+
+  <!-- 弹出层放在最外层以确保在最上层显示 -->
+  <!-- 尺寸选择弹出层 -->
+  <view class="popup-mask" wx:if="{{showSizePopup}}" bindtap="hideSizePopup"></view>
+  <view class="popup-content {{showSizePopup ? 'popup-show' : ''}}" wx:if="{{showSizePopup}}">
+    <view class="popup-header">
+      <text>选择尺寸</text>
+      <view class="popup-close" bindtap="hideSizePopup">✖️</view>
+    </view>
+    <view class="popup-body">
+      <view 
+        wx:for="{{sizeList}}" 
+        wx:key="id"
+        class="size-item {{selectedSize.id === item.id ? 'active' : ''}}"
+        data-size="{{item}}"
+        bindtap="selectSize"
+      >
+        <view class="size-name">{{item.name}}</view>
+        <view class="size-dimensions">{{item.width}}x{{item.height}}</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 背景色选择弹出层 -->
+  <view class="popup-mask" wx:if="{{showColorPopup}}" bindtap="hideColorPopup"></view>
+  <view class="popup-content {{showColorPopup ? 'popup-show' : ''}}" wx:if="{{showColorPopup}}">
+    <view class="popup-header">
+      <text>选择背景色</text>
+      <view class="popup-close" bindtap="hideColorPopup">✖️</view>
+    </view>
+    <view class="popup-body">
+      <view 
+        wx:for="{{colorList}}" 
+        wx:key="id"
+        class="color-item {{selectedColor.id === item.id ? 'active' : ''}}"
+        data-color="{{item}}"
+        bindtap="selectColor"
+      >
+        <view class="color-preview" style="background-color: {{item.value}}"></view>
+        <view class="color-name">{{item.name}}</view>
+      </view>
+    </view>
+  </view>
+</view>

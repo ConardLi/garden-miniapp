@@ -1,0 +1,10 @@
+<canvas 
+  type="2d" 
+  id="{{cropperOpt.id}}" 
+  class="cropper" 
+  disable-scroll="true"
+  bindtouchstart="touchStart"
+  bindtouchmove="touchMove"
+  bindtouchend="touchEnd"
+  style="width: {{cropperOpt.width}}px; height: {{cropperOpt.height}}px;"
+></canvas>
